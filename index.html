@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equifax AI Backstage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <a class="brand" href="index.html">
+            <span class="material-symbols-rounded brand-icon" aria-hidden="true">rocket_launch</span>
+            Equifax AI Backstage
+          </a>
+          <div class="nav-links">
+            <a class="is-active" href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a href="skills.html">Skills</a>
+            <a href="communities.html">AI Communities</a>
+            <a href="agents.html">Agents</a>
+            <a href="foundations.html">Foundations</a>
+          </div>
+        </nav>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Equifax AI operating surface</p>
+          <h1>One place to navigate models, communities, skills, and AI agents.</h1>
+          <p class="lede">
+            This proof of concept reframes the backstage as a multipage AI hub
+            for Equifax teams: one front door, then dedicated pages for model
+            selection, reusable skills, communities, agents, and governance.
+          </p>
+        </div>
+
+        <div class="summary-strip">
+          <article class="summary-card">
+            <p class="label">Pages</p>
+            <strong>6</strong>
+            <span>Home plus dedicated pages for core AI operating surfaces</span>
+          </article>
+          <article class="summary-card">
+            <p class="label">Models</p>
+            <strong>8</strong>
+            <span>Seed entries drawn from a models.dev snapshot</span>
+          </article>
+          <article class="summary-card">
+            <p class="label">Skills</p>
+            <strong>12+</strong>
+            <span>Reusable internal skills by domain and workflow</span>
+          </article>
+          <article class="summary-card">
+            <p class="label">Repos</p>
+            <strong>10</strong>
+            <span>Connected repositories with AI assets and tooling</span>
+          </article>
+        </div>
+      </header>
+
+      <main>
+        <!-- ── Navigation cards ── -->
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Navigation</p>
+            <h2>Use the home page as a gateway, not as a long scroll.</h2>
+            <p>
+              Each destination below is its own page so teams can enter the
+              specific AI topic they need without scanning unrelated content.
+            </p>
+          </div>
+
+          <div class="grid cards-3">
+            <a class="card page-link-card" href="models.html">
+              <p class="card-tag">01</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">table_chart</span>
+              <h3>Models</h3>
+              <p>Browse provider options, capability signals, cost posture, and internal portfolio state.</p>
+              <span class="status active">Open page</span>
+            </a>
+            <a class="card page-link-card" href="skills.html">
+              <p class="card-tag">02</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">search</span>
+              <h3>Skills</h3>
+              <p>Search internal prompts, workflow templates, and reusable orchestration patterns.</p>
+              <span class="status active">Open page</span>
+            </a>
+            <a class="card page-link-card" href="communities.html">
+              <p class="card-tag">03</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">groups</span>
+              <h3>AI Communities</h3>
+              <p>Find the right guild, office hours, review council, or adoption channel for AI work.</p>
+              <span class="status active">Open page</span>
+            </a>
+            <a class="card page-link-card" href="agents.html">
+              <p class="card-tag">04</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">smart_toy</span>
+              <h3>Agents</h3>
+              <p>Inspect agent ownership, channels, maturity, and where each one is already operating.</p>
+              <span class="status active">Open page</span>
+            </a>
+            <a class="card page-link-card" href="foundations.html">
+              <p class="card-tag">05</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">account_tree</span>
+              <h3>Foundations</h3>
+              <p>Connect repositories, decision logs, governance checkpoints, and control surfaces.</p>
+              <span class="status active">Open page</span>
+            </a>
+            <article class="card">
+              <p class="card-tag">06</p>
+              <span class="material-symbols-rounded section-icon" aria-hidden="true">monitoring</span>
+              <h3>Future metrics</h3>
+              <p>Add adoption, quality, and policy metrics later without overloading the first release.</p>
+              <span class="status review">Next step</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- ── Featured repositories ── -->
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Repositories</p>
+            <h2>Connected repositories powering AI assets and tooling.</h2>
+            <p>These repositories are part of the AI operating surface — from agent runtimes to evaluation harnesses and knowledge bases.</p>
+          </div>
+
+          <div class="grid cards-3">
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/codex_efx" target="_blank" rel="noreferrer">codex_efx</a></h3>
+              <p>Codex example using chatbox with Equifax colors. Reference implementation for branded AI interfaces.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot python"></span> Python</span>
+                <span class="repo-date">Apr 2025</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/knowledge" target="_blank" rel="noreferrer">knowledge</a></h3>
+              <p>Scripts and skills to help with knowledge bases in markdown. Supports internal knowledge sync.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot python"></span> Python</span>
+                <span class="repo-date">Mar 2026</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/agent-news" target="_blank" rel="noreferrer">agent-news</a></h3>
+              <p>List of agents using Google ADK. Reference for multi-agent patterns and orchestration.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot default"></span> ADK</span>
+                <span class="repo-date">May 2025</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/zx-harness" target="_blank" rel="noreferrer">zx-harness</a></h3>
+              <p>Define scripts to orchestrate harness. Evaluation and testing infrastructure for AI workflows.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot go"></span> Go Template</span>
+                <span class="repo-date">Mar 2026</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/github-utils" target="_blank" rel="noreferrer">github-utils</a></h3>
+              <p>GitHub metrics and utilities. Tracks repository health, contributor activity, and AI adoption signals.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot python"></span> Python</span>
+                <span class="repo-date">Mar 2026</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/hooks-adapter" target="_blank" rel="noreferrer">hooks-adapter</a></h3>
+              <p>Hooks adapter for event-driven integrations. Connects AI pipelines to external triggers.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot default"></span> Adapter</span>
+                <span class="repo-date">Apr 2026</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/adk-conn" target="_blank" rel="noreferrer">adk-conn</a></h3>
+              <p>ADK connections layer. Manages authentication and routing for agent-to-service communication.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot python"></span> Python</span>
+                <span class="repo-date">Jun 2025</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/pi-extensions" target="_blank" rel="noreferrer">pi-extensions</a></h3>
+              <p>TypeScript extensions for platform integrations. Reusable modules for backstage plugins.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot ts"></span> TypeScript</span>
+                <span class="repo-date">Mar 2026</span>
+              </div>
+            </article>
+            <article class="card repo-card">
+              <p class="label">Repository</p>
+              <h3><a href="https://github.com/gvillarroel/synthetic-data-for-text" target="_blank" rel="noreferrer">synthetic-data-for-text</a></h3>
+              <p>Synthetic data generation for text models. Supports evaluation dataset creation and bias testing.</p>
+              <div class="repo-meta">
+                <span class="lang-badge"><span class="lang-dot jupyter"></span> Jupyter</span>
+                <span class="repo-date">Apr 2022</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ── Backstage capabilities ── -->
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Platform capabilities</p>
+            <h2>All available options in the backstage surface.</h2>
+            <p>The backstage provides a unified operating surface for AI work. These are the core capabilities available today and planned for the future.</p>
+          </div>
+
+          <div class="options-grid">
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">table_chart</span>
+              <div>
+                <h3>Model Inventory</h3>
+                <p>Browse, compare, and select AI models by provider, cost, capability, and internal approval state.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">search</span>
+              <div>
+                <h3>Skill Finder</h3>
+                <p>Discover reusable prompts, workflow templates, guardrails, and orchestration patterns by domain.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">groups</span>
+              <div>
+                <h3>Community Map</h3>
+                <p>Find guilds, office hours, review councils, and enablement channels for AI work.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">smart_toy</span>
+              <div>
+                <h3>Agent Directory</h3>
+                <p>Track agents as managed products with owners, channels, risk posture, and production status.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">folder_copy</span>
+              <div>
+                <h3>Repository Map</h3>
+                <p>Connect prompt libraries, evaluation suites, agent runtimes, and integration repos as assets.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">account_tree</span>
+              <div>
+                <h3>Architecture Diagrams</h3>
+                <p>Render Mermaid and PlantUML diagrams for system flows, sequences, and dependencies.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">gavel</span>
+              <div>
+                <h3>Decision Logs</h3>
+                <p>Track model approvals, deprecations, and architectural decisions with owners and dates.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">shield</span>
+              <div>
+                <h3>Control Surface</h3>
+                <p>Policy references, approved connectors, and escalation routes for high-risk deployments.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">monitoring</span>
+              <div>
+                <h3>Metrics &amp; Adoption</h3>
+                <p>Adoption rates, quality signals, cost tracking, and policy compliance dashboards.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">token</span>
+              <div>
+                <h3>API Gateway</h3>
+                <p>Manage API keys, rate limits, model routing, and usage quotas across teams.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">science</span>
+              <div>
+                <h3>Evaluation Lab</h3>
+                <p>Run benchmarks, compare model outputs, and validate prompt performance before production.</p>
+              </div>
+            </article>
+            <article class="card option-card">
+              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <div>
+                <h3>Documentation Hub</h3>
+                <p>Centralized guides, onboarding flows, best practices, and runbooks for AI work.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ── Diagram examples ── -->
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Diagrams</p>
+            <h2>Architecture and flow diagrams with Mermaid and PlantUML.</h2>
+            <p>The backstage supports rendering diagrams directly from code. Below are examples of common diagram types.</p>
+          </div>
+
+          <div class="diagram-grid">
+            <article class="card diagram-card">
+              <p class="label">Mermaid · Flowchart</p>
+              <h3>AI Backstage Architecture</h3>
+              <div class="mermaid">
+graph LR
+  A[Backstage Hub] --> B[Model Inventory]
+  A --> C[Skill Finder]
+  A --> D[Community Map]
+  A --> E[Agent Directory]
+  A --> F[Foundations]
+  B --> G[Provider APIs]
+  C --> H[Prompt Libraries]
+  E --> I[Agent Runtimes]
+  F --> J[Decision Logs]
+  F --> K[Governance]
+              </div>
+            </article>
+
+            <article class="card diagram-card">
+              <p class="label">Mermaid · Sequence</p>
+              <h3>Agent Request Flow</h3>
+              <div class="mermaid">
+sequenceDiagram
+  participant U as User
+  participant B as Backstage
+  participant A as Agent Runtime
+  participant M as Model API
+  U->>B: Request agent action
+  B->>A: Route to agent
+  A->>M: Call model with prompt
+  M-->>A: Model response
+  A->>A: Apply guardrails
+  A-->>B: Validated result
+  B-->>U: Display response
+              </div>
+            </article>
+
+            <article class="card diagram-card">
+              <p class="label">Mermaid · State diagram</p>
+              <h3>Model Lifecycle States</h3>
+              <div class="mermaid">
+stateDiagram-v2
+  [*] --> Research
+  Research --> Evaluation : Submit for eval
+  Evaluation --> Preview : Pass benchmarks
+  Preview --> Review : Request approval
+  Review --> Approved : Board approved
+  Review --> Evaluation : Needs work
+  Approved --> Production : Deploy
+  Production --> Monitoring : Observe
+  Monitoring --> Deprecated : End of life
+  Deprecated --> [*]
+              </div>
+            </article>
+
+            <article class="card diagram-card">
+              <p class="label">Mermaid · ER diagram</p>
+              <h3>Backstage Data Model</h3>
+              <div class="mermaid">
+erDiagram
+  MODEL ||--o{ DEPLOYMENT : "deployed as"
+  MODEL {
+    string name
+    string provider
+    string state
+    int context_window
+  }
+  AGENT ||--|{ SKILL : "uses"
+  AGENT {
+    string name
+    string owner
+    string channel
+    string status
+  }
+  SKILL {
+    string name
+    string domain
+    string type
+  }
+  COMMUNITY ||--o{ AGENT : "governs"
+  COMMUNITY {
+    string name
+    string cadence
+    string purpose
+  }
+  DEPLOYMENT {
+    string environment
+    date deployed_at
+    string risk_level
+  }
+              </div>
+            </article>
+
+            <article class="card diagram-card">
+              <p class="label">PlantUML · Component diagram</p>
+              <h3>Platform Component Architecture</h3>
+              <div class="plantuml-code" style="position:relative;">
+                <pre>@startuml
+!theme plain
+skinparam backgroundColor #f7f7f7
+
+package "Backstage UI" {
+  [Home Page]
+  [Model Inventory]
+  [Skill Finder]
+  [Agent Directory]
+  [Community Map]
+}
+
+package "Backend Services" {
+  [API Gateway]
+  [Auth Service]
+  [Model Router]
+  [Evaluation Engine]
+}
+
+package "Data Stores" {
+  database "Model Registry" as MR
+  database "Skill Catalog" as SC
+  database "Agent Config" as AC
+  database "Decision Log" as DL
+}
+
+[Home Page] --> [API Gateway]
+[Model Inventory] --> [Model Router]
+[Skill Finder] --> [API Gateway]
+[Agent Directory] --> [API Gateway]
+
+[API Gateway] --> [Auth Service]
+[Model Router] --> MR
+[API Gateway] --> SC
+[API Gateway] --> AC
+[Evaluation Engine] --> MR
+[Evaluation Engine] --> DL
+@enduml</pre>
+              </div>
+            </article>
+
+            <article class="card diagram-card">
+              <p class="label">PlantUML · Sequence diagram</p>
+              <h3>Model Approval Workflow</h3>
+              <div class="plantuml-code" style="position:relative;">
+                <pre>@startuml
+!theme plain
+actor "Team Lead" as TL
+participant "Backstage" as BS
+participant "Eval Engine" as EE
+participant "Risk Council" as RC
+database "Model Registry" as MR
+
+TL -> BS : Submit model request
+BS -> EE : Trigger evaluation
+EE -> EE : Run benchmarks
+EE -> BS : Return eval report
+
+BS -> RC : Submit for review
+RC -> RC : Assess risk & compliance
+RC -> BS : Approval decision
+
+alt Approved
+  BS -> MR : Register model
+  BS -> TL : Notify approved
+else Rejected
+  BS -> TL : Notify with feedback
+end
+@enduml</pre>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-heading" style="margin-top: 32px;">
+            <p class="label">Available diagram types</p>
+          </div>
+          <div class="diagram-type-grid">
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">account_tree</span> Flowchart</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">swap_horiz</span> Sequence</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">schema</span> Class diagram</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">cycle</span> State diagram</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">database</span> ER diagram</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">view_timeline</span> Gantt chart</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">pie_chart</span> Pie chart</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">commit</span> Git graph</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">trip</span> Journey map</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">dashboard</span> Component</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">deployed_code</span> Deployment</div>
+            <div class="diagram-type-chip"><span class="material-symbols-rounded" aria-hidden="true">mindfulness</span> Mindmap</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          primaryColor: '#cdf3ff',
+          primaryTextColor: '#1c1c1c',
+          primaryBorderColor: '#007298',
+          lineColor: '#333e48',
+          secondaryColor: '#ffccd5',
+          tertiaryColor: '#f7f7f7',
+          fontFamily: '"Open Sans", arial, sans-serif'
+        }
+      });
+    </script>
+  </body>
+</html>

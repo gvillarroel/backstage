@@ -29,6 +29,129 @@ mermaid.initialize({
 
 /* ── PlantUML encoder ── */
 
+/**
+ * EFX brand skinparams injected after @startuml in every diagram.
+ * Maps the Equifax color palette to PlantUML styling properties.
+ */
+const EFX_PLANTUML_THEME = `
+skinparam backgroundColor #f7f7f7
+skinparam defaultFontName "Open Sans"
+skinparam defaultFontColor #333e48
+skinparam shadowing false
+skinparam roundCorner 4
+skinparam ArrowColor #333e48
+skinparam ArrowFontColor #333e48
+
+skinparam participant {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+}
+
+skinparam actor {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+}
+
+skinparam usecase {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+}
+
+skinparam rectangle {
+  BorderColor #007298
+  BackgroundColor #ffffff
+  FontColor #1c1c1c
+}
+
+skinparam package {
+  BorderColor #007298
+  BackgroundColor #ffffff
+  FontColor #1c1c1c
+  StereotypeFontColor #007298
+}
+
+skinparam component {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+}
+
+skinparam database {
+  BorderColor #9e1b32
+  BackgroundColor #ffccd5
+  FontColor #1c1c1c
+}
+
+skinparam node {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+}
+
+skinparam cloud {
+  BorderColor #652f6c
+  BackgroundColor #f9ccff
+  FontColor #1c1c1c
+}
+
+skinparam note {
+  BorderColor #e77204
+  BackgroundColor #ffe5cc
+  FontColor #1c1c1c
+}
+
+skinparam activity {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+  DiamondBorderColor #9e1b32
+  DiamondBackgroundColor #ffccd5
+  DiamondFontColor #1c1c1c
+  StartColor #007298
+  EndColor #9e1b32
+  BarColor #333e48
+}
+
+skinparam sequence {
+  LifeLineBorderColor #007298
+  LifeLineBackgroundColor #cdf3ff
+  GroupBorderColor #007298
+  GroupBackgroundColor #f7f7f7
+  DividerBorderColor #9c9c9c
+  DividerBackgroundColor #e7e7e7
+  ReferenceBackgroundColor #cdf3ff
+  ReferenceBorderColor #007298
+}
+
+skinparam class {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  HeaderBackgroundColor #007298
+  FontColor #1c1c1c
+  AttributeFontColor #333e48
+}
+
+skinparam state {
+  BorderColor #007298
+  BackgroundColor #cdf3ff
+  FontColor #1c1c1c
+  StartColor #007298
+  EndColor #9e1b32
+}
+`.trim();
+
+/**
+ * Inject EFX theme after @startuml, removing any existing !theme directive.
+ */
+function applyEfxTheme(text) {
+  return text
+    .replace(/!theme\s+\w+\n?/g, '')
+    .replace(/@startuml/, '@startuml\n' + EFX_PLANTUML_THEME);
+}
+
 function encode6bit(b) {
   if (b < 10) return String.fromCharCode(48 + b);
   b -= 10;
@@ -66,7 +189,8 @@ function encode64(data) {
 }
 
 function encodePlantUML(text) {
-  const data = window.pako.deflateRaw(text, { level: 9 });
+  const themed = applyEfxTheme(text);
+  const data = window.pako.deflateRaw(themed, { level: 9 });
   return encode64(data);
 }
 

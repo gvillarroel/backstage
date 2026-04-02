@@ -1,0 +1,16 @@
+name,owner,github_url,description,language,date,type,show_on
+codex_efx,gvillarroel,https://github.com/gvillarroel/codex_efx,"Codex example using chatbox with Equifax colors. Reference implementation for branded AI interfaces.",Python,Apr 2025,reference_ui,"index,foundations"
+knowledge,gvillarroel,https://github.com/gvillarroel/knowledge,"Scripts and skills to help with knowledge bases in markdown. Supports internal knowledge sync.",Python,Mar 2026,knowledge,"index,foundations"
+agent-news,gvillarroel,https://github.com/gvillarroel/agent-news,"List of agents using Google ADK. Reference for multi-agent patterns and orchestration.",ADK,May 2025,agent_runtime,"index,foundations"
+zx-harness,gvillarroel,https://github.com/gvillarroel/zx-harness,"Define scripts to orchestrate harness. Evaluation and testing infrastructure for AI workflows.",Go Template,Mar 2026,harness,"index,foundations"
+github-utils,gvillarroel,https://github.com/gvillarroel/github-utils,"GitHub metrics and utilities. Tracks repository health, contributor activity, and AI adoption signals.",Python,Mar 2026,metrics,"index,foundations"
+hooks-adapter,gvillarroel,https://github.com/gvillarroel/hooks-adapter,"Hooks adapter for event-driven integrations. Connects AI pipelines to external triggers.",Adapter,Apr 2026,integrations,"index,foundations"
+adk-conn,gvillarroel,https://github.com/gvillarroel/adk-conn,"ADK connections layer. Manages authentication and routing for agent-to-service communication.",Python,Jun 2025,connections,"index,foundations"
+pi-extensions,gvillarroel,https://github.com/gvillarroel/pi-extensions,"TypeScript extensions for platform integrations. Reusable modules for backstage plugins.",TypeScript,Mar 2026,extensions,"index,foundations"
+synthetic-data-for-text,gvillarroel,https://github.com/gvillarroel/synthetic-data-for-text,"Synthetic data generation for text models. Supports evaluation dataset creation and bias testing.",Jupyter,Apr 2022,data,index
+backstage,gvillarroel,https://github.com/gvillarroel/backstage,"Equifax AI Backstage proof of concept. Defines styling direction and page structure.",HTML,Jun 2025,platform,docs
+television,gvillarroel,https://github.com/gvillarroel/television,"Terminal UI for fast file preview. Rust-based fuzzy finder for codebases.",Rust,Mar 2026,tools,docs
+astro-gcs,gvillarroel,https://github.com/gvillarroel/astro-gcs,"Astro site deployed to Google Cloud Storage. Static site hosting reference.",Astro,Feb 2025,deployment,docs
+gender_bias,gvillarroel,https://github.com/gvillarroel/gender_bias,"Gender bias analysis in NLP models. Fairness evaluation and mitigation patterns.",Python,Jun 2024,research,docs
+feature-construction,gvillarroel,https://github.com/gvillarroel/feature-construction,"Feature engineering pipelines. Automated feature construction for ML models.",Python,Sep 2023,ml,docs
+ellmtree,gvillarroel,https://github.com/gvillarroel/ellmtree,"LLM tree exploration tool. Visualizes decision paths in language model outputs.",Python,Jan 2024,research,docs

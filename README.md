@@ -13,6 +13,7 @@ Proof of concept for defining the product's visual style, core pages, and how Gi
 | Agents | `agents.html` | Agent directory with ownership, channels, and lifecycle status |
 | Foundations | `foundations.html` | Repository map, architecture diagrams, and governance controls |
 | Other | `other.html` | Full component showcase using every backstage capability |
+| Docs | `docs.html` | Auto-synced README documentation from GitHub repositories |
 
 ## Files
 
@@ -20,6 +21,53 @@ Proof of concept for defining the product's visual style, core pages, and how Gi
 - `SPECS.md` — source of truth for specifications
 - `styles.css` — EFX design system with 55+ CSS custom properties
 - `diagrams.js` — shared Mermaid + PlantUML renderer (ESM module)
+- `sync-docs.py` — documentation sync script (GitHub → `docs.html`)
+- `build.py` — master build script (CSV → HTML + Markdown)
+
+## Data files (`data/`)
+
+All page content is driven by CSV files. Edit these, then run `python build.py`.
+
+| File | Records | Drives |
+|------|---------|--------|
+| `data/models.csv` | 8 models | `models.html`, `models.md` |
+| `data/repositories.csv` | 15 repos | `index.html`, `foundations.html`, `docs.md` |
+| `data/communities.csv` | 4 communities | `communities.html`, `communities.md` |
+| `data/agents.csv` | 6 agents | `agents.html`, `agents.md` |
+| `data/skills.csv` | 4 skills | `skills.html`, `skills.md` |
+| `data/capabilities.csv` | 12 capabilities | `index.html`, `foundations.html`, `index.md` |
+
+### Markdown output
+
+Every page has a `.md` twin generated for agent consumption. Links in Markdown
+files point to other `.md` files so agents can navigate the full surface.
+
+| HTML | Markdown |
+|------|----------|
+| `index.html` | `index.md` |
+| `models.html` | `models.md` |
+| `skills.html` | `skills.md` |
+| `communities.html` | `communities.md` |
+| `agents.html` | `agents.md` |
+| `foundations.html` | `foundations.md` |
+| `other.html` | `other.md` |
+| `docs.html` | `docs.md` |
+
+## Build
+
+```bash
+python build.py              # Full: update HTML + generate Markdown
+python build.py --md-only    # Only regenerate .md files
+python build.py --html-only  # Only update HTML between markers
+python build.py --dry-run    # Preview without writing
+```
+
+### Typical workflow
+
+1. Edit a CSV in `data/` (e.g. add a model to `data/models.csv`)
+2. Run `python build.py`
+3. Open `http://localhost:8090/models.html` to verify HTML
+4. Commit the CSV + generated files
 
 ## Run
 
@@ -66,3 +114,55 @@ The CSS defines 55+ custom properties organized into palettes:
 - **Highlight** — lighter variants for badge and status backgrounds
 - **Status** — vivid colors for alerts and notifications
 - **Semantic** — text, link, border, disabled, background aliases
+
+## Docs sync (`sync-docs.py`)
+
+Fetches README files from GitHub repositories and generates `docs.html`.
+
+### Quick start
+
+```bash
+# Sync all configured repos (unauthenticated — 60 req/hr)
+python sync-docs.py
+
+# With GitHub token (5000 req/hr)
+python sync-docs.py --token ghp_YOUR_TOKEN
+
+# Or via environment variable
+export GITHUB_TOKEN=ghp_YOUR_TOKEN
+python sync-docs.py
+```
+
+### Options
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `--owner` | `gvillarroel` | GitHub user/org to fetch repos from |
+| `--repos` | 15 configured | Comma-separated repo names to sync |
+| `--token` | `$GITHUB_TOKEN` | GitHub personal access token |
+| `--output` | `docs.html` | Output HTML file |
+| `--dry-run` | — | Print what would be fetched without API calls |
+
+### Scheduling
+
+Run periodically to keep docs fresh:
+
+```bash
+# cron (Linux/Mac) — daily at 6:00 AM UTC
+0 6 * * * cd /path/to/backstage && python sync-docs.py
+
+# Task Scheduler (Windows) — daily
+schtasks /create /tn "SyncDocs" /tr "python C:\path\to\backstage\sync-docs.py" /sc daily /st 06:00
+
+# GitHub Actions — on push or schedule
+# See .github/workflows/ for CI example
+```
+
+### Adding repositories
+
+Edit the `DEFAULT_REPOS` list in `sync-docs.py` or pass `--repos`:
+
+```bash
+python sync-docs.py --repos backstage,knowledge,codex_efx
+python sync-docs.py --owner another-org --repos my-repo
+```

@@ -1,0 +1,9 @@
+provider,model_name,portfolio_state,tool_call,reasoning,input_types,context_window,input_cost_per_1m,output_cost_per_1m,notes
+OpenAI,GPT-5.2 Codex,Approved for build,yes,yes,"text, image, PDF",400000,1.75,,Primary build model
+Anthropic,Claude Opus 4.5 (latest),Review board,yes,yes,"text, image, PDF",200000,5.00,,Under review for production
+Google,Gemini 2.5 Flash Lite,Cost-optimized,yes,yes,"text, image, audio, video, PDF",1048576,0.10,,Best cost/performance ratio
+Google,Gemini 3.1 Pro Preview,Preview only,yes,yes,"text, image, video, audio, PDF",1048576,2.00,,Preview — not for production
+Mistral,Mistral Small 4,Open evaluation,yes,yes,"text, image",256000,0.15,,Community evaluation phase
+DeepSeek,DeepSeek Reasoner,Research track,yes,yes,text,128000,0.28,,Research use only
+xAI,Grok 4 Fast,Monitoring,yes,yes,"text, image",2000000,0.20,,Monitoring for suitability
+OpenAI,text-embedding-3-large,Foundation,no,no,text,8191,0.13,,Embedding model

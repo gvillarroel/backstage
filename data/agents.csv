@@ -1,0 +1,7 @@
+name,status,description,owner,channel,icon
+Support Triage Agent,Production,"Routes incoming support cases, suggests priority, and drafts summaries for human review.",Customer Service Ops,Case management,support_agent
+Policy Q&A Agent,Controlled,"Answers internal policy questions using approved documentation and escalation rules.",Risk and Compliance,Internal portal,policy
+Repo Change Reviewer,Pilot,"Summarizes pull requests, flags risks, and drafts review notes for engineering teams.",Developer Experience,GitHub workflow,code
+Data Quality Monitor,Monitoring,"Watches ingestion pipelines, explains anomalies, and prepares remediation recommendations.",Data Platform,Slack and alerting,monitoring
+Prompt Coach,Shared service,"Guides teams on prompt structure, evaluation habits, and internal skill reuse patterns.",AI Enablement,Backstage and office hours,school
+Vendor Intake Agent,Discovery,"Collects vendor data, prepares intake packets, and highlights open approval questions.",Procurement and Architecture,Intake workflow,storefront

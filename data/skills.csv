@@ -1,0 +1,5 @@
+name,description,category,tags,status
+Claim Summary Builder,"Structured summarization pattern for customer support and dispute review workflows.",Service Ops,"summarization,compliance-safe,service",active
+Policy Evidence Extractor,"Extracts policy references with citation formatting and escalation triggers for ambiguous cases.",Risk,"extraction,governance,audit",active
+Agent Handoff Template,"Reusable coordination pattern for multi-agent execution with scoped ownership and review rules.",Agents,"orchestration,agents,delivery",active
+Case Escalation Guardrail,"Defines confidence thresholds, escalation boundaries, and safe fallback language for frontline assistants.",Risk,"guardrails,risk,service operations",active

@@ -32,6 +32,7 @@
             <a href="agents.html">Agents</a>
             <a href="foundations.html">Foundations</a>
             <a href="other.html">Other</a>
+            <a href="docs.html">Docs</a>
           </div>
         </nav>
 
@@ -72,6 +73,7 @@
 
         <section class="section section-tight">
           <div class="table-wrap">
+            <!-- BEGIN:models -->
             <table class="models-table">
               <thead>
                 <tr>
@@ -80,9 +82,9 @@
                   <th>Portfolio state</th>
                   <th>Tool call</th>
                   <th>Reasoning</th>
-                  <th>Input</th>
-                  <th>Context</th>
-                  <th>Input cost / 1M</th>
+                  <th>Input types</th>
+                  <th>Context window</th>
+                  <th>Cost / 1 M input</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,9 +92,9 @@
                   <td>OpenAI</td>
                   <td>GPT-5.2 Codex</td>
                   <td><span class="table-status approved">Approved for build</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image, PDF</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image, PDF</td>
                   <td>400,000</td>
                   <td>$1.75</td>
                 </tr>
@@ -100,9 +102,9 @@
                   <td>Anthropic</td>
                   <td>Claude Opus 4.5 (latest)</td>
                   <td><span class="table-status review">Review board</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image, PDF</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image, PDF</td>
                   <td>200,000</td>
                   <td>$5.00</td>
                 </tr>
@@ -110,9 +112,9 @@
                   <td>Google</td>
                   <td>Gemini 2.5 Flash Lite</td>
                   <td><span class="table-status optimized">Cost-optimized</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image, audio, video, PDF</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image, audio, video, PDF</td>
                   <td>1,048,576</td>
                   <td>$0.10</td>
                 </tr>
@@ -120,9 +122,9 @@
                   <td>Google</td>
                   <td>Gemini 3.1 Pro Preview</td>
                   <td><span class="table-status preview">Preview only</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image, video, audio, PDF</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image, video, audio, PDF</td>
                   <td>1,048,576</td>
                   <td>$2.00</td>
                 </tr>
@@ -130,9 +132,9 @@
                   <td>Mistral</td>
                   <td>Mistral Small 4</td>
                   <td><span class="table-status evaluation">Open evaluation</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image</td>
                   <td>256,000</td>
                   <td>$0.15</td>
                 </tr>
@@ -140,9 +142,9 @@
                   <td>DeepSeek</td>
                   <td>DeepSeek Reasoner</td>
                   <td><span class="table-status research">Research track</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text</td>
                   <td>128,000</td>
                   <td>$0.28</td>
                 </tr>
@@ -150,9 +152,9 @@
                   <td>xAI</td>
                   <td>Grok 4 Fast</td>
                   <td><span class="table-status monitoring">Monitoring</span></td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                  <td>Text, image</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>text, image</td>
                   <td>2,000,000</td>
                   <td>$0.20</td>
                 </tr>
@@ -160,14 +162,15 @@
                   <td>OpenAI</td>
                   <td>text-embedding-3-large</td>
                   <td><span class="table-status foundation">Foundation</span></td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Text</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>text</td>
                   <td>8,191</td>
                   <td>$0.13</td>
                 </tr>
               </tbody>
             </table>
+<!-- END:models -->
           </div>
         </section>
       </main>

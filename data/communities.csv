@@ -1,0 +1,5 @@
+name,type,icon,description,cadence,link,link_label
+AI Builders Guild,guild,construction,"For engineers shipping copilots, workflows, and product-facing AI features.",weekly demos,https://teams.microsoft.com/ai-builders,Join Guild
+Model Risk Council,council,gavel,"For policy, legal, security, explainability, and review checkpoints before production rollout.",biweekly review,https://teams.microsoft.com/model-risk,Join Council
+Prompt Lab Office Hours,office_hours,edit_note,"For lightweight enablement on prompts, evals, agent instructions, and reuse patterns.",twice per week,https://teams.microsoft.com/prompt-lab,Join Office Hours
+Data Science Forum,forum,science,"For experimentation, benchmarks, retrieval pipelines, and model quality measurement.",monthly deep dive,https://teams.microsoft.com/data-science,Join Forum

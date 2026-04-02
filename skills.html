@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills | Equifax AI Backstage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-hero">
+        <nav class="topbar">
+          <a class="brand" href="index.html">
+            <span class="material-symbols-rounded brand-icon" aria-hidden="true">rocket_launch</span>
+            Equifax AI Backstage
+          </a>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a class="is-active" href="skills.html">Skills</a>
+            <a href="communities.html">AI Communities</a>
+            <a href="agents.html">Agents</a>
+            <a href="foundations.html">Foundations</a>
+            <a href="other.html">Other</a>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Internal skill finder</p>
+          <h1>Search internal skills by job to be done, not by file name.</h1>
+          <p class="lede">
+            The skill surface should help teams discover reusable prompts,
+            workflow templates, and orchestration patterns by outcome, domain,
+            and guardrail.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-tight">
+          <div class="search-panel">
+            <div class="search-toolbar">
+              <div class="search-input">
+                <span class="material-symbols-rounded" aria-hidden="true">search</span>
+                <span>Search internal skills, workflows, prompt packs</span>
+              </div>
+              <div class="filter-row">
+                <span class="filter-chip active-chip">Risk</span>
+                <span class="filter-chip">Engineering</span>
+                <span class="filter-chip">Service Ops</span>
+                <span class="filter-chip">Prompting</span>
+                <span class="filter-chip">Agents</span>
+              </div>
+            </div>
+
+            <div class="skill-results">
+              <article class="skill-card">
+                <p class="label">Internal skill</p>
+                <h3>Claim Summary Builder</h3>
+                <p>Structured summarization pattern for customer support and dispute review workflows.</p>
+                <p class="meta">Tags: summarization, compliance-safe, service</p>
+              </article>
+              <article class="skill-card">
+                <p class="label">Internal skill</p>
+                <h3>Policy Evidence Extractor</h3>
+                <p>Extracts policy references with citation formatting and escalation triggers for ambiguous cases.</p>
+                <p class="meta">Tags: extraction, governance, audit</p>
+              </article>
+              <article class="skill-card">
+                <p class="label">Internal skill</p>
+                <h3>Agent Handoff Template</h3>
+                <p>Reusable coordination pattern for multi-agent execution with scoped ownership and review rules.</p>
+                <p class="meta">Tags: orchestration, agents, delivery</p>
+              </article>
+              <article class="skill-card">
+                <p class="label">Internal skill</p>
+                <h3>Case Escalation Guardrail</h3>
+                <p>Defines confidence thresholds, escalation boundaries, and safe fallback language for frontline assistants.</p>
+                <p class="meta">Tags: guardrails, risk, service operations</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

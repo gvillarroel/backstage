@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agents | Equifax AI Backstage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="page-hero">
+        <nav class="topbar">
+          <a class="brand" href="index.html">
+            <span class="material-symbols-rounded brand-icon" aria-hidden="true">rocket_launch</span>
+            Equifax AI Backstage
+          </a>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="models.html">Models</a>
+            <a href="skills.html">Skills</a>
+            <a href="communities.html">AI Communities</a>
+            <a class="is-active" href="agents.html">Agents</a>
+            <a href="foundations.html">Foundations</a>
+            <a href="other.html">Other</a>
+          </div>
+        </nav>
+
+        <div class="page-intro">
+          <p class="eyebrow">Agent directory</p>
+          <h1>List AI agents as managed products with owners, channels, and risk posture.</h1>
+          <p class="lede">
+            Agent entries should not read like experiments. They should show who
+            owns them, where they run, what they are allowed to do, and how
+            mature they are.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-tight">
+          <div class="grid cards-3">
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Support Triage Agent</h3>
+                <span class="table-status approved">Production</span>
+              </div>
+              <p>Routes incoming support cases, suggests priority, and drafts summaries for human review.</p>
+              <p class="meta">Owner: Customer Service Ops</p>
+              <p class="meta">Channel: Case management</p>
+            </article>
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Policy Q&amp;A Agent</h3>
+                <span class="table-status review">Controlled</span>
+              </div>
+              <p>Answers internal policy questions using approved documentation and escalation rules.</p>
+              <p class="meta">Owner: Risk and Compliance</p>
+              <p class="meta">Channel: Internal portal</p>
+            </article>
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Repo Change Reviewer</h3>
+                <span class="table-status evaluation">Pilot</span>
+              </div>
+              <p>Summarizes pull requests, flags risks, and drafts review notes for engineering teams.</p>
+              <p class="meta">Owner: Developer Experience</p>
+              <p class="meta">Channel: GitHub workflow</p>
+            </article>
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Data Quality Monitor</h3>
+                <span class="table-status monitoring">Monitoring</span>
+              </div>
+              <p>Watches ingestion pipelines, explains anomalies, and prepares remediation recommendations.</p>
+              <p class="meta">Owner: Data Platform</p>
+              <p class="meta">Channel: Slack and alerting</p>
+            </article>
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Prompt Coach</h3>
+                <span class="table-status foundation">Shared service</span>
+              </div>
+              <p>Guides teams on prompt structure, evaluation habits, and internal skill reuse patterns.</p>
+              <p class="meta">Owner: AI Enablement</p>
+              <p class="meta">Channel: Backstage and office hours</p>
+            </article>
+            <article class="card agent-card">
+              <div class="agent-head">
+                <h3>Vendor Intake Agent</h3>
+                <span class="table-status preview">Discovery</span>
+              </div>
+              <p>Collects vendor data, prepares intake packets, and highlights open approval questions.</p>
+              <p class="meta">Owner: Procurement and Architecture</p>
+              <p class="meta">Channel: Intake workflow</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

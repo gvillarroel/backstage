@@ -91,6 +91,15 @@ def shows_on(row, page):
     return page in [s.strip() for s in row.get("show_on", "").split(",")]
 
 
+_UPPER_WORDS = {"ui", "api", "ml", "ai", "adk", "ci", "cd", "sdk", "llm", "id"}
+
+
+def smart_title(text):
+    """Title-case that preserves abbreviations like UI, API, ML."""
+    words = text.replace("_", " ").split()
+    return " ".join(w.upper() if w.lower() in _UPPER_WORDS else w.capitalize() for w in words)
+
+
 def esc(text):
     """HTML-escape text."""
     return (
@@ -160,7 +169,7 @@ def html_models_table(models):
 
 def html_repo_card(r, label=None):
     """Generate a single repo card article."""
-    lbl = label or r.get("type", "Repository").replace("_", " ").title()
+    lbl = label or smart_title(r.get("type", "Repository"))
     dot = lang_dot(r.get("language", ""))
     lang = esc(r.get("language", "—"))
     date_part = ""
@@ -216,7 +225,7 @@ def html_community_cards(communities):
             link_html = f'\n              <p class="meta"><a href="{esc(link)}" target="_blank" rel="noreferrer">{esc(link_label)}</a></p>'
         cards.append(
             f"""            <article class="card community-card">
-              <p class="label"><span class="material-symbols-rounded" aria-hidden="true" style="font-size:1.1rem;vertical-align:-2px;margin-right:4px;">{esc(icon)}</span> {esc(c.get('type', 'Community').replace('_', ' ').title())}</p>
+              <p class="label"><span class="material-symbols-rounded" aria-hidden="true" style="font-size:1.1rem;vertical-align:-2px;margin-right:4px;">{esc(icon)}</span> {esc(smart_title(c.get('type', 'Community')))}</p>
               <h3>{esc(c['name'])}</h3>
               <p>{esc(c['description'])}</p>
               <p class="meta">Cadence: {esc(c.get('cadence', ''))}</p>{link_html}
@@ -482,7 +491,7 @@ def md_communities(communities):
         "",
     ]
     for c in communities:
-        ctype = c.get("type", "community").replace("_", " ").title()
+        ctype = smart_title(c.get("type", "community"))
         lines += [
             f"### {c['name']}",
             "",
@@ -502,7 +511,7 @@ def md_communities(communities):
         "|-----------|------|---------|",
     ]
     for c in communities:
-        ctype = c.get("type", "community").replace("_", " ").title()
+        ctype = smart_title(c.get("type", "community"))
         lines.append(f"| {c['name']} | {ctype} | {c.get('cadence', '')} |")
     return "\n".join(lines) + "\n"
 
@@ -558,7 +567,7 @@ def md_foundations(repos, caps):
     ]
     for r in repos:
         if shows_on(r, "foundations"):
-            rtype = r.get("type", "").replace("_", " ").title()
+            rtype = smart_title(r.get("type", ""))
             lines.append(
                 f"| [{r['name']}]({r['github_url']}) | {rtype} | {r.get('language', '—')} | {r['description']} |"
             )

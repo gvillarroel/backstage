@@ -8,7 +8,7 @@ Repository map, architecture diagrams, and governance controls.
 
 | Name | Type | Language | Description |
 |------|------|----------|-------------|
-| [codex_efx](https://github.com/gvillarroel/codex_efx) | Reference Ui | Python | Codex example using chatbox with Equifax colors. Reference implementation for branded AI interfaces. |
+| [codex_efx](https://github.com/gvillarroel/codex_efx) | Reference UI | Python | Codex example using chatbox with Equifax colors. Reference implementation for branded AI interfaces. |
 | [knowledge](https://github.com/gvillarroel/knowledge) | Knowledge | Python | Scripts and skills to help with knowledge bases in markdown. Supports internal knowledge sync. |
 | [agent-news](https://github.com/gvillarroel/agent-news) | Agent Runtime | ADK | List of agents using Google ADK. Reference for multi-agent patterns and orchestration. |
 | [zx-harness](https://github.com/gvillarroel/zx-harness) | Harness | Go Template | Define scripts to orchestrate harness. Evaluation and testing infrastructure for AI workflows. |

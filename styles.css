@@ -294,7 +294,7 @@ p {
 h1,
 h2,
 h3 {
-  line-height: 1.02;
+  line-height: 1.15;
   color: var(--efx-gray-900);
 }
 

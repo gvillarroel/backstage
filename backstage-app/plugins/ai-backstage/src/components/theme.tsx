@@ -13,10 +13,11 @@ export const equifaxDesignTokens = {
   brandBlue: '#007298',
   brandGray: '#333e48',
   neutralSurface: '#ffffff',
-  neutralSurfaceMuted: '#f7f7f7',
-  borderLight: 'rgba(51, 62, 72, 0.12)',
-  borderStrong: 'rgba(51, 62, 72, 0.2)',
-  shadow: '0 18px 44px rgba(51, 62, 72, 0.08)',
+  neutralSurfaceSoft: '#fafbfb',
+  neutralSurfaceMuted: '#f4f5f6',
+  borderLight: 'rgba(51, 62, 72, 0.1)',
+  borderStrong: 'rgba(51, 62, 72, 0.18)',
+  shadow: '0 10px 28px rgba(51, 62, 72, 0.05)',
 } as const;
 
 export const designTokenMap = [
@@ -74,6 +75,7 @@ const equifaxTheme = createMuiTheme({
       root: {
         border: `1px solid ${equifaxDesignTokens.borderLight}`,
         boxShadow: equifaxDesignTokens.shadow,
+        backgroundImage: 'none',
       },
       rounded: {
         borderRadius: 4,
@@ -81,8 +83,8 @@ const equifaxTheme = createMuiTheme({
     },
     MuiTableCell: {
       head: {
-        backgroundColor: '#e7e7e7',
-        color: '#1c1c1c',
+        backgroundColor: '#f1f3f4',
+        color: equifaxDesignTokens.brandGray,
         fontSize: '0.8rem',
         fontWeight: 800,
         letterSpacing: '0.1em',
@@ -103,6 +105,9 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
     },
     '& a:hover': {
       color: '#004d66',
+    },
+    '& .MuiCard-root, & .MuiPaper-root': {
+      borderColor: equifaxDesignTokens.borderLight,
     },
     '& *:focus-visible': {
       outline: `2px solid ${theme.palette.secondary.main}`,

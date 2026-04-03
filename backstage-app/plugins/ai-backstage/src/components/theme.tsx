@@ -12,6 +12,25 @@ export const equifaxDesignTokens = {
   brandRed: '#9e1b32',
   brandBlue: '#007298',
   brandGray: '#333e48',
+  primaryOrange: '#e77204',
+  primaryGreen: '#45842a',
+  gray100: '#e7e7e7',
+  gray200: '#cfcfcf',
+  gray300: '#b5b5b5',
+  gray400: '#9c9c9c',
+  gray500: '#828282',
+  gray600: '#696969',
+  gray700: '#4f4f4f',
+  gray800: '#363636',
+  gray900: '#1c1c1c',
+  shadowRed: '#6d1222',
+  shadowOrange: '#994a00',
+  shadowGreen: '#294d19',
+  shadowBlue: '#004d66',
+  highlightRed: '#ffccd5',
+  highlightOrange: '#ffe5cc',
+  highlightGreen: '#dbffcc',
+  highlightBlue: '#cdf3ff',
   neutralSurface: '#ffffff',
   neutralSurfaceSoft: '#fafbfb',
   neutralSurfaceMuted: '#f4f5f6',
@@ -68,17 +87,26 @@ const equifaxTheme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 4,
+    borderRadius: 0,
   },
   overrides: {
     MuiPaper: {
       root: {
-        border: `1px solid ${equifaxDesignTokens.borderLight}`,
         boxShadow: equifaxDesignTokens.shadow,
         backgroundImage: 'none',
       },
       rounded: {
-        borderRadius: 4,
+        borderRadius: 0,
+      },
+    },
+    MuiChip: {
+      root: {
+        borderRadius: 0,
+      },
+    },
+    MuiButton: {
+      root: {
+        borderRadius: 0,
       },
     },
     MuiTableCell: {
@@ -107,7 +135,8 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
       color: '#004d66',
     },
     '& .MuiCard-root, & .MuiPaper-root': {
-      borderColor: equifaxDesignTokens.borderLight,
+      borderColor: 'transparent',
+      borderRadius: 0,
     },
     '& *:focus-visible': {
       outline: `2px solid ${theme.palette.secondary.main}`,

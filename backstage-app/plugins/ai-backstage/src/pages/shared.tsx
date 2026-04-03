@@ -5,6 +5,17 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import MemoryIcon from '@material-ui/icons/Memory';
+import ApartmentIcon from '@material-ui/icons/Apartment';
+import BubbleChartIcon from '@material-ui/icons/BubbleChart';
+import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
+import AppsIcon from '@material-ui/icons/Apps';
+import SearchIcon from '@material-ui/icons/Search';
+import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import CloudQueueIcon from '@material-ui/icons/CloudQueue';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import type { AiBackstageSnapshot } from '../types';
 import {
   AiPage,
@@ -16,6 +27,7 @@ import {
   LoadingState,
   MetadataRow,
   RepoLink,
+  SearchShowcase,
   SectionBlock,
   SimpleTable,
   StatusBadge,
@@ -28,6 +40,7 @@ import {
   mapLegacyLinkToRoute,
   titleFromSlug,
 } from '../utils/format';
+import { equifaxDesignTokens } from '../components/theme';
 
 export const SnapshotBoundary = ({
   loading,
@@ -47,7 +60,12 @@ export const SnapshotBoundary = ({
     return <ErrorState error={error} />;
   }
   if (!snapshot) {
-    return <EmptyState title="No data available" message="The AI Backstage snapshot is empty." />;
+    return (
+      <EmptyState
+        title="No data available"
+        message="The AI Backstage snapshot is empty."
+      />
+    );
   }
   return children(snapshot);
 };
@@ -65,8 +83,9 @@ export const renderHomePage = (snapshot: AiBackstageSnapshot) => {
       metrics={[
         {
           label: 'Domains',
-          value: '8',
-          helper: 'Home, Models, Skills, Communities, Agents, Foundations, Docs, Showcase',
+          value: '9',
+          helper:
+            'Home, Models, Skills, Communities, Agents, Foundations, Docs, Platform, Showcase',
         },
         {
           label: 'Models',
@@ -176,6 +195,20 @@ export const renderHomePage = (snapshot: AiBackstageSnapshot) => {
                 />
               ),
             },
+            {
+              key: 'platform',
+              title: 'Platform',
+              eyebrow: 'Backstage capabilities',
+              description:
+                'Explains what this Backstage environment can do across catalog, search, scaffolding, docs, auth, notifications, and signals.',
+              footer: (
+                <IconHeadline
+                  icon={AppsIcon}
+                  title="Platform-level view"
+                  description="Clarifies the product surface behind the content pages."
+                />
+              ),
+            },
           ]}
         />
       </SectionBlock>
@@ -196,7 +229,9 @@ export const renderHomePage = (snapshot: AiBackstageSnapshot) => {
                   <span>{repository.language || 'Unknown language'}</span>
                   <span>{repository.date || 'No date'}</span>
                 </MetadataRow>
-                <RepoLink href={repository.github_url}>Open repository</RepoLink>
+                <RepoLink href={repository.github_url}>
+                  Open repository
+                </RepoLink>
               </>
             ),
           }))}
@@ -219,7 +254,9 @@ export const renderModelsPage = (snapshot: AiBackstageSnapshot) => (
       },
       {
         label: 'Providers',
-        value: String(new Set(snapshot.models.map(model => model.provider)).size),
+        value: String(
+          new Set(snapshot.models.map(model => model.provider)).size,
+        ),
         helper: 'Curated vendor mix with internal posture',
       },
       {
@@ -277,7 +314,9 @@ export const renderSkillsPage = (snapshot: AiBackstageSnapshot) => (
       },
       {
         label: 'Categories',
-        value: String(new Set(snapshot.skills.map(skill => skill.category)).size),
+        value: String(
+          new Set(snapshot.skills.map(skill => skill.category)).size,
+        ),
         helper: 'Domain buckets for quick discovery',
       },
       {
@@ -350,44 +389,180 @@ export const renderCommunitiesPage = (snapshot: AiBackstageSnapshot) => (
   </AiPage>
 );
 
-export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => (
-  <AiPage
-    eyebrow="Agent directory"
-    title="List AI agents as managed assets, not one-off experiments."
-    description="Ownership, channel, status, and purpose stay central. This page mirrors the original intent closely, but now exists in the same internal portal where related platforms and repos can later be connected natively."
-    metrics={[
-      {
-        label: 'Agents',
-        value: String(snapshot.agents.length),
-        helper: 'Tracked as product-like assets',
-      },
-      {
-        label: 'Statuses',
-        value: String(new Set(snapshot.agents.map(agent => agent.status)).size),
-        helper: 'Lifecycle posture remains explicit',
-      },
-    ]}
-  >
-    <SectionBlock eyebrow="Directory" title="Managed agent assets">
-      <DomainCardGrid
-        items={snapshot.agents.map(agent => ({
-          key: agent.name,
-          title: agent.name,
-          eyebrow: agent.owner,
-          description: agent.description,
-          footer: (
-            <>
-              <StatusBadge label={agent.status} tone={agent.uiStatus} />
-              <MetadataRow>
-                <span>Channel: {agent.channel}</span>
-              </MetadataRow>
-            </>
-          ),
-        }))}
-      />
-    </SectionBlock>
-  </AiPage>
-);
+export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
+  const classes = useAiBackstageStyles();
+  const statusCounts = snapshot.agents.reduce<Record<string, number>>(
+    (acc, agent) => {
+      acc[agent.status] = (acc[agent.status] ?? 0) + 1;
+      return acc;
+    },
+    {},
+  );
+  const ownerCount = new Set(snapshot.agents.map(agent => agent.owner)).size;
+  const channelCount = new Set(snapshot.agents.map(agent => agent.channel))
+    .size;
+  const accentByTone: Record<string, string> = {
+    approved: equifaxDesignTokens.shadowGreen,
+    review: equifaxDesignTokens.shadowOrange,
+    optimized: equifaxDesignTokens.shadowRed,
+    preview: equifaxDesignTokens.shadowBlue,
+    evaluation: equifaxDesignTokens.shadowRed,
+    research: equifaxDesignTokens.shadowRed,
+    monitoring: equifaxDesignTokens.shadowOrange,
+    foundation: equifaxDesignTokens.shadowGreen,
+  };
+  const topStatuses = Object.entries(statusCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3);
+
+  return (
+    <AiPage
+      eyebrow="Agent directory"
+      title="List AI agents as managed assets, not one-off experiments."
+      description="The page now reads like an operating surface, not a spreadsheet transplant. Ownership, production posture, and delivery channel stay visible at scan speed while the layout carries the Equifax brand system more cleanly."
+      aside={
+        <Paper className={classes.heroPanel}>
+          <Typography className={classes.heroPanelLabel}>
+            Operating coverage
+          </Typography>
+          <Typography className={classes.heroPanelValue}>
+            {snapshot.agents.length} live entries
+          </Typography>
+          <div className={classes.heroPanelList}>
+            <div className={classes.heroPanelItem}>
+              <span>Owning teams</span>
+              <strong>{ownerCount}</strong>
+            </div>
+            <div className={classes.heroPanelItem}>
+              <span>Delivery channels</span>
+              <strong>{channelCount}</strong>
+            </div>
+            <div className={classes.heroPanelItem}>
+              <span>Most common posture</span>
+              <strong>{topStatuses[0]?.[0] ?? 'TBD'}</strong>
+            </div>
+          </div>
+        </Paper>
+      }
+      metrics={[
+        {
+          label: 'Agents',
+          value: String(snapshot.agents.length),
+          helper: 'Tracked as product-like assets',
+        },
+        {
+          label: 'Statuses',
+          value: String(Object.keys(statusCounts).length),
+          helper: 'Lifecycle posture remains explicit',
+        },
+        {
+          label: 'Owners',
+          value: String(ownerCount),
+          helper: 'Distinct teams carrying accountability',
+        },
+        {
+          label: 'Channels',
+          value: String(channelCount),
+          helper: 'Execution surfaces used in practice',
+        },
+      ]}
+    >
+      <SectionBlock
+        eyebrow="Signals"
+        title="Where the current portfolio is concentrated"
+        description="The strongest statuses are surfaced separately so the page communicates posture before the user reads every card."
+      >
+        <div className={classes.statusOverviewGrid}>
+          {topStatuses.map(([status, count], index) => (
+            <Paper
+              key={status}
+              className={classes.statusOverviewCard}
+              style={{
+                boxShadow: `0 12px 26px rgba(51, 62, 72, 0.07), inset 0 3px 0 ${
+                  accentByTone[
+                    snapshot.agents.find(agent => agent.status === status)
+                      ?.uiStatus ?? 'preview'
+                  ] ?? accentByTone.preview
+                }`,
+              }}
+            >
+              <Typography className={classes.eyebrow}>
+                {index === 0
+                  ? 'Primary posture'
+                  : index === 1
+                  ? 'Secondary posture'
+                  : 'Emerging posture'}
+              </Typography>
+              <Typography className={classes.statusOverviewValue}>
+                {count}
+              </Typography>
+              <StatusBadge
+                label={status}
+                tone={
+                  snapshot.agents.find(agent => agent.status === status)
+                    ?.uiStatus ?? 'preview'
+                }
+              />
+            </Paper>
+          ))}
+        </div>
+      </SectionBlock>
+      <SectionBlock
+        eyebrow="Directory"
+        title="Managed agent assets"
+        description="Each card now carries the ownership line, the operating status, and the channel as distinct signals so the page scans cleanly even inside the denser Backstage shell."
+      >
+        <div className={classes.agentGrid}>
+          {snapshot.agents.map(agent => (
+            <Paper
+              key={agent.name}
+              className={classes.agentCard}
+              style={{
+                background: equifaxDesignTokens.neutralSurface,
+                boxShadow: `0 12px 30px rgba(51, 62, 72, 0.07), inset 3px 0 0 ${
+                  accentByTone[agent.uiStatus] ?? accentByTone.preview
+                }`,
+              }}
+            >
+              <div className={classes.agentCardHeader}>
+                <div>
+                  <Typography className={classes.agentOwner}>
+                    {agent.owner}
+                  </Typography>
+                  <Typography className={classes.agentName}>
+                    {agent.name}
+                  </Typography>
+                </div>
+                <StatusBadge label={agent.status} tone={agent.uiStatus} />
+              </div>
+              <Typography className={classes.agentDescription}>
+                {agent.description}
+              </Typography>
+              <div className={classes.agentFooter}>
+                <div className={classes.agentMetaRow}>
+                  <span className={classes.agentMetaPill}>
+                    <ApartmentIcon fontSize="small" />
+                    {agent.owner}
+                  </span>
+                  <span className={classes.agentMetaPill}>
+                    <SettingsEthernetIcon fontSize="small" />
+                    {agent.channel}
+                  </span>
+                </div>
+                <div className={classes.agentMetaRow}>
+                  <span className={classes.agentMetaPill}>
+                    <BubbleChartIcon fontSize="small" />
+                    Lifecycle: {agent.status}
+                  </span>
+                </div>
+              </div>
+            </Paper>
+          ))}
+        </div>
+      </SectionBlock>
+    </AiPage>
+  );
+};
 
 export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
   const repos = snapshot.repositories.filter(repository =>
@@ -408,8 +583,9 @@ export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
         {
           label: 'Capabilities',
           value: String(
-            snapshot.capabilities.filter(cap => cap.show_on.includes('foundations'))
-              .length,
+            snapshot.capabilities.filter(cap =>
+              cap.show_on.includes('foundations'),
+            ).length,
           ),
           helper: 'Controls and platform capabilities',
         },
@@ -433,7 +609,9 @@ export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
                   <span>{repository.language}</span>
                   <span>{repository.date}</span>
                 </MetadataRow>
-                <RepoLink href={repository.github_url}>Open repository</RepoLink>
+                <RepoLink href={repository.github_url}>
+                  Open repository
+                </RepoLink>
               </>
             ),
           }))}
@@ -520,7 +698,10 @@ export const renderDocsPage = (snapshot: AiBackstageSnapshot) => (
       <SimpleTable
         columns={['Name', 'Owner', 'Language', 'Description', 'Docs path']}
         rows={snapshot.repositories.map(repository => [
-          <RepoLink key={`${repository.name}-repo`} href={repository.github_url}>
+          <RepoLink
+            key={`${repository.name}-repo`}
+            href={repository.github_url}
+          >
             {repository.name}
           </RepoLink>,
           repository.owner,
@@ -528,6 +709,305 @@ export const renderDocsPage = (snapshot: AiBackstageSnapshot) => (
           repository.description,
           'GitHub README today, TechDocs next',
         ])}
+      />
+    </SectionBlock>
+  </AiPage>
+);
+
+export const renderPlatformPage = (snapshot: AiBackstageSnapshot) => (
+  <AiPage
+    eyebrow="Platform overview"
+    title="Show what this Backstage platform can actually do."
+    description="This page exists to make the shell visible as a platform, not just a frame around the AI directory. It explains the installed capabilities, the major plugins in play, and the operating workflows teams can expect from this deployment."
+    metrics={[
+      {
+        label: 'Frontend plugins',
+        value: '12+',
+        helper:
+          'Catalog, Scaffolder, Search, TechDocs, Notifications, Signals, and more',
+      },
+      {
+        label: 'Backend services',
+        value: '10+',
+        helper:
+          'Auth, permissions, catalog, search, proxy, Kubernetes, and docs services',
+      },
+      {
+        label: 'AI pages',
+        value: String(
+          snapshot.agents.length + snapshot.models.length > 0 ? 9 : 8,
+        ),
+        helper:
+          'Custom AI Backstage product pages now living inside the platform shell',
+      },
+      {
+        label: 'Direction',
+        value: 'Platform',
+        helper:
+          'Directory content plus native Backstage workflows in one place',
+      },
+    ]}
+  >
+    <SectionBlock
+      eyebrow="Core workflows"
+      title="What teams can do in this platform"
+      description="These are the highest-value platform motions visible from the installed plugin set and current app configuration."
+    >
+      <DomainCardGrid
+        items={[
+          {
+            key: 'catalog',
+            title: 'Catalog and ownership',
+            eyebrow: 'Software Catalog',
+            description:
+              'Track components, APIs, systems, ownership, and relationships so teams navigate software as a map rather than a file tree.',
+            footer: (
+              <IconHeadline
+                icon={StorageIcon}
+                title="Entity graph"
+                description="Catalog, org, and graph plugins support ownership and dependency views."
+              />
+            ),
+          },
+          {
+            key: 'search',
+            title: 'Search across the platform',
+            eyebrow: 'Discovery',
+            description:
+              'Search spans catalog records and documentation so teams can find systems, docs, and metadata from one place.',
+            footer: (
+              <IconHeadline
+                icon={SearchIcon}
+                title="Unified lookup"
+                description="Backed by the search frontend and backend modules plus TechDocs indexing."
+              />
+            ),
+          },
+          {
+            key: 'scaffolder',
+            title: 'Create software and templates',
+            eyebrow: 'Golden paths',
+            description:
+              'Scaffolder lets teams create services, repos, and templates using guided workflows instead of copying one-off setup steps.',
+            footer: (
+              <IconHeadline
+                icon={CreateNewFolderIcon}
+                title="Template workflows"
+                description="Includes scaffolder frontend and backend modules with GitHub support."
+              />
+            ),
+          },
+          {
+            key: 'docs',
+            title: 'Publish and read documentation',
+            eyebrow: 'TechDocs',
+            description:
+              'Documentation can live close to the code and surface in a consistent reader experience inside the same portal.',
+            footer: (
+              <IconHeadline
+                icon={MenuBookIcon}
+                title="Docs in flow"
+                description="TechDocs frontend and backend are installed in the app stack."
+              />
+            ),
+          },
+          {
+            key: 'auth',
+            title: 'Handle access and identity',
+            eyebrow: 'Authentication',
+            description:
+              'The app already includes guest auth and the backend auth service, which is the base for stronger provider-driven access models.',
+            footer: (
+              <IconHeadline
+                icon={LockOpenIcon}
+                title="Identity foundation"
+                description="Auth and permission services are in the backend composition."
+              />
+            ),
+          },
+          {
+            key: 'operations',
+            title: 'Operate beyond the directory',
+            eyebrow: 'Platform operations',
+            description:
+              'Notifications, signals, Kubernetes, and visualizer support move the portal toward an operational workspace, not just a static hub.',
+            footer: (
+              <IconHeadline
+                icon={CloudQueueIcon}
+                title="Operational plugins"
+                description="Signals, notifications, Kubernetes, and app visualizer are installed."
+              />
+            ),
+          },
+        ]}
+      />
+    </SectionBlock>
+    <SectionBlock
+      eyebrow="Installed plugins"
+      title="Major capabilities visible from this deployment"
+      description="This is the practical plugin inventory a stakeholder can understand without reading package manifests."
+    >
+      <SimpleTable
+        columns={['Area', 'Plugin(s)', 'What it enables']}
+        rows={[
+          [
+            'Core software map',
+            'Catalog, Catalog Graph, Org',
+            'Browse entities, ownership, relationships, and system context',
+          ],
+          [
+            'Creation workflows',
+            'Scaffolder, Catalog Import',
+            'Create new software or bring existing repos into the platform',
+          ],
+          [
+            'Documentation',
+            'TechDocs, TechDocs addons',
+            'Render and search technical documentation inside Backstage',
+          ],
+          [
+            'Discovery',
+            'Search',
+            'Search across catalog and documentation surfaces',
+          ],
+          [
+            'Operations',
+            'Notifications, Signals, Kubernetes',
+            'Expose runtime and operational signals in the same portal',
+          ],
+          [
+            'Developer utilities',
+            'App Visualizer, API Docs, User Settings',
+            'Inspect app composition, APIs, and user-level configuration',
+          ],
+          [
+            'Custom product surface',
+            'AI Backstage frontend + backend',
+            'The AI directory, docs hub, and platform pages you are reviewing now',
+          ],
+        ]}
+      />
+    </SectionBlock>
+    <SectionBlock
+      eyebrow="Docs and Discovery"
+      title="Serious documentation needs diagrams and search"
+      description="This section makes those capabilities explicit with two diagram formats and a working search experience, so the platform reads more like a real documentation environment."
+    >
+      <DomainCardGrid
+        items={[
+          {
+            key: 'platform-mermaid',
+            title: 'Mermaid architecture',
+            description: (
+              <DiagramCard
+                title="Backstage platform flow"
+                kind="mermaid"
+                source={`flowchart LR
+  users[Engineering teams] --> shell[Backstage shell]
+  shell --> catalog[Catalog and ownership]
+  shell --> docs[TechDocs and knowledge]
+  shell --> scaffolder[Templates and golden paths]
+  shell --> ai[AI Backstage product surface]
+  ai --> snapshot[Snapshot data bridge]
+  snapshot --> backend[Backstage backend services]`}
+              />
+            ),
+          },
+          {
+            key: 'platform-plantuml',
+            title: 'PlantUML deployment',
+            description: (
+              <DiagramCard
+                title="Backstage deployment view"
+                kind="plantuml"
+                source={`@startuml
+skinparam shadowing false
+skinparam packageStyle rectangle
+actor "Engineering Team" as User
+rectangle "Backstage Frontend" {
+  component "Catalog"
+  component "Search"
+  component "TechDocs"
+  component "Scaffolder"
+  component "AI Backstage"
+}
+rectangle "Backstage Backend" {
+  component "Auth"
+  component "Permissions"
+  component "Search Backend"
+  component "TechDocs Backend"
+  component "AI Snapshot API"
+}
+database "Catalog Data"
+database "AI Snapshot Data"
+User --> "Backstage Frontend"
+"AI Backstage" --> "AI Snapshot API"
+"Catalog" --> "Catalog Data"
+"Search" --> "Search Backend"
+"TechDocs" --> "TechDocs Backend"
+"AI Snapshot API" --> "AI Snapshot Data"
+@enduml`}
+              />
+            ),
+          },
+          {
+            key: 'native-search',
+            title: 'Native search entry point',
+            description:
+              'The platform also keeps the native Backstage search route available when teams want the full search experience outside the embedded showcase.',
+            footer: <RepoLink href="/search">Open Backstage search</RepoLink>,
+          },
+        ]}
+      />
+      <SearchShowcase snapshot={snapshot} />
+    </SectionBlock>
+    <SectionBlock
+      eyebrow="Why It Matters"
+      title="Why this platform page belongs here"
+      description="The AI directory is more useful when people can see that it is not isolated content. It sits inside a broader platform capable of ownership mapping, docs, search, template creation, auth, and operational workflows."
+    >
+      <DomainCardGrid
+        items={[
+          {
+            key: 'stakeholder',
+            title: 'For stakeholders',
+            description:
+              'Makes it obvious that Backstage is the operating platform and the AI pages are one product surface within it.',
+            footer: (
+              <IconHeadline
+                icon={AppsIcon}
+                title="Platform framing"
+                description="Prevents the portal from reading like a disconnected microsite."
+              />
+            ),
+          },
+          {
+            key: 'engineering',
+            title: 'For engineering teams',
+            description:
+              'Connects the AI directory to native Backstage workflows teams already understand: catalog, docs, templates, and search.',
+            footer: (
+              <IconHeadline
+                icon={CreateNewFolderIcon}
+                title="Workflow bridge"
+                description="Reduces the gap between content curation and platform adoption."
+              />
+            ),
+          },
+          {
+            key: 'operations',
+            title: 'For platform operators',
+            description:
+              'Creates a clearer narrative for why notifications, signals, permissions, and backend services matter to the user experience.',
+            footer: (
+              <IconHeadline
+                icon={NotificationsActiveIcon}
+                title="Operational story"
+                description="Helps explain the backend composition without forcing people into package.json."
+              />
+            ),
+          },
+        ]}
       />
     </SectionBlock>
   </AiPage>
@@ -545,7 +1025,8 @@ export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => {
         {
           label: 'Token mappings',
           value: '7',
-          helper: 'Core mappings from legacy CSS variables into MUI/theme semantics',
+          helper:
+            'Core mappings from legacy CSS variables into MUI/theme semantics',
         },
         {
           label: 'Parity goal',

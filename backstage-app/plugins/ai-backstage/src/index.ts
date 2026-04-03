@@ -6,6 +6,7 @@ import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import MemoryIcon from '@material-ui/icons/Memory';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import DescriptionIcon from '@material-ui/icons/Description';
+import AppsIcon from '@material-ui/icons/Apps';
 import PaletteIcon from '@material-ui/icons/Palette';
 import {
   PageBlueprint,
@@ -17,6 +18,7 @@ import {
   docsRouteRef,
   foundationsRouteRef,
   modelsRouteRef,
+  platformRouteRef,
   rootRouteRef,
   showcaseRouteRef,
   skillsRouteRef,
@@ -32,6 +34,7 @@ export default createFrontendPlugin({
     agents: agentsRouteRef,
     foundations: foundationsRouteRef,
     docs: docsRouteRef,
+    platform: platformRouteRef,
     showcase: showcaseRouteRef,
   },
   extensions: [
@@ -43,9 +46,7 @@ export default createFrontendPlugin({
         routeRef: rootRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/HomePage').then(m =>
-            React.createElement(m.HomePage),
-          ),
+          import('./pages/HomePage').then(m => React.createElement(m.HomePage)),
       },
     }),
     PageBlueprint.make({
@@ -128,6 +129,20 @@ export default createFrontendPlugin({
         noHeader: true,
         loader: () =>
           import('./pages/DocsPage').then(m => React.createElement(m.DocsPage)),
+      },
+    }),
+    PageBlueprint.make({
+      name: 'platform',
+      params: {
+        path: '/platform',
+        title: 'Backstage Platform',
+        icon: React.createElement(AppsIcon),
+        routeRef: platformRouteRef,
+        noHeader: true,
+        loader: () =>
+          import('./pages/PlatformPage').then(m =>
+            React.createElement(m.PlatformPage),
+          ),
       },
     }),
     PageBlueprint.make({

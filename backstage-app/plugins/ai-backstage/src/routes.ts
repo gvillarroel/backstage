@@ -7,4 +7,5 @@ export const communitiesRouteRef = createRouteRef();
 export const agentsRouteRef = createRouteRef();
 export const foundationsRouteRef = createRouteRef();
 export const docsRouteRef = createRouteRef();
+export const platformRouteRef = createRouteRef();
 export const showcaseRouteRef = createRouteRef();

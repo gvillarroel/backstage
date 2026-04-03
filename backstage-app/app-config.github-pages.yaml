@@ -1,0 +1,8 @@
+app:
+  baseUrl: https://gvillarroel.github.io/backstage
+
+organization:
+  name: Equifax
+
+backend:
+  baseUrl: https://gvillarroel.github.io/backstage

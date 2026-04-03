@@ -1,0 +1,25 @@
+:root {
+  --efx-brand-red: #9e1b32;
+  --efx-brand-gray: #333e48;
+  --efx-primary-blue: #007298;
+  --efx-surface: #ffffff;
+  --efx-surface-muted: #f7f7f7;
+  --efx-border: rgba(51, 62, 72, 0.14);
+  --efx-shadow: 0 18px 44px rgba(51, 62, 72, 0.08);
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 247, 247, 1) 100%),
+    linear-gradient(120deg, rgba(158, 27, 50, 0.03), rgba(0, 114, 152, 0.02));
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}

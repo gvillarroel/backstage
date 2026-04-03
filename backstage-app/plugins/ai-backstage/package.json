@@ -1,0 +1,37 @@
+{
+  "name": "@internal/plugin-ai-backstage",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "backstage": {
+    "role": "frontend-plugin"
+  },
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean"
+  },
+  "dependencies": {
+    "@backstage/cli": "^0.36.0",
+    "@backstage/core-components": "^0.18.8",
+    "@backstage/frontend-plugin-api": "^0.15.1",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "mermaid": "^11.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.2"
+  },
+  "devDependencies": {
+    "@backstage/frontend-test-utils": "^0.5.1",
+    "@testing-library/react": "^14.3.1",
+    "@types/react": "^18.3.23",
+    "jest": "^30.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

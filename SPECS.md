@@ -8,6 +8,8 @@ This repository is a proof of concept for defining an Equifax AI backstage that:
 - defines the core AI pages that should exist in the experience
 - frames repositories, skills, communities, and agents as connected operating assets
 
+For terminology, "backstage" in this spec refers to the open source Backstage platform project at [github.com/backstage/backstage](https://github.com/backstage/backstage), not a generic use of the word.
+
 ## Product Framing
 
 The product should feel like an internal operating surface for AI work at Equifax:

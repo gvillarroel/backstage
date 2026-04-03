@@ -1,0 +1,29 @@
+{
+  "name": "@internal/plugin-ai-backstage-backend",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "backstage": {
+    "role": "backend-plugin"
+  },
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean"
+  },
+  "dependencies": {
+    "@backstage/backend-plugin-api": "^1.3.3",
+    "@backstage/cli": "^0.36.0",
+    "csv-parse": "^5.5.6",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

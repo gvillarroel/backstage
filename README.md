@@ -1,6 +1,51 @@
 # backstage
 
-Proof of concept for defining the product's visual style, core pages, and how GitHub repositories are documented as part of a broader experience.
+This repository now contains two layers:
+
+1. The original static proof of concept in the repository root.
+2. A real Backstage application in `backstage-app/` that migrates the same product shape into the official Backstage platform.
+
+The migration keeps the Equifax visual direction, page architecture, and CSV-curated seed data, while replacing static HTML generation with a Backstage frontend plugin plus a backend CSV adapter.
+
+## Backstage app
+
+The implementation target lives in `backstage-app/`.
+
+### What is inside
+
+- `backstage-app/plugins/ai-backstage` — frontend plugin with the AI Backstage pages
+- `backstage-app/plugins/ai-backstage-backend` — backend plugin that reads the existing root `data/*.csv` files
+- `backstage-app/packages/app/src/modules/ai-theme` — global font and visual bridge into the Backstage shell
+
+### Run the Backstage app
+
+```bash
+cd backstage-app
+corepack yarn install
+corepack yarn start
+```
+
+### Validate the Backstage app
+
+```bash
+cd backstage-app
+corepack yarn tsc
+corepack yarn build:all
+CI=true corepack yarn workspace @internal/plugin-ai-backstage-backend test --runInBand
+CI=true corepack yarn workspace app test --runInBand
+```
+
+### CI/CD and GitHub Pages
+
+- CI workflow: `.github/workflows/ci.yml`
+- GitHub Pages workflow: `.github/workflows/pages.yml`
+- Expected Pages URL after pushing `main`: `https://gvillarroel.github.io/backstage/`
+
+The Pages deployment builds a static frontend bundle from `backstage-app/`, generates `ai-backstage-snapshot.json` from the existing root CSV data, and deploys the app with an SPA fallback so the Backstage routes remain navigable on GitHub Pages.
+
+## Legacy POC
+
+The root-level HTML, CSS, Markdown, and Python files remain as the visual and content reference during migration. They are no longer the primary implementation target.
 
 ## Pages
 

@@ -24,6 +24,7 @@ export const SidebarContent = NavContentBlueprint.make({
 
       // Skipped items
       nav.take('page:search'); // Using search modal instead
+      nav.take('page:techdocs'); // Native TechDocs stays available at /techdocs but is not part of the main AI nav
 
       return (
         <Sidebar>

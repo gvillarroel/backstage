@@ -26,3 +26,16 @@ test('App should render the welcome page', async ({ page }) => {
   });
   await expect(page.getByRole('link', { name: 'APIs' })).toBeVisible();
 });
+
+test('Docs route should render the curated AI docs hub', async ({ page }) => {
+  await page.goto('/docs');
+  await page.waitForLoadState('networkidle');
+
+  await expect(
+    page.getByText(
+      'Keep repository knowledge curated now, while preparing for TechDocs later.',
+    ),
+  ).toBeVisible();
+  await expect(page.getByText('Route model')).toBeVisible();
+  await expect(page.getByText('/techdocs')).toBeVisible();
+});

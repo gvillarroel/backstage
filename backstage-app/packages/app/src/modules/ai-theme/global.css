@@ -43,44 +43,78 @@ body {
   box-shadow: var(--efx-shadow-sidebar);
 }
 
+[data-testid='sidebar-root'] > [class*='BackstageSidebar-drawer'] {
+  background: var(--efx-gray-100) !important;
+  border-right: 1px solid var(--efx-gray-200) !important;
+  box-shadow: var(--efx-shadow-sidebar) !important;
+}
+
 [class*='BackstageSidebarItem-root'],
-[class*='BackstageSidebarItem-buttonItem'] {
+[class*='BackstageSidebarItem-buttonItem'],
+[class*='BackstageSidebarSubmenuItem-root'] {
   border-radius: 0;
   margin: 0 10px 2px;
 }
 
 [class*='BackstageSidebarItem-root'],
 [class*='BackstageSidebarItem-buttonItem'],
+[class*='BackstageSidebarSubmenuItem-root'],
 [class*='BackstageSidebarItem-label'],
 [class*='BackstageSidebarItem-itemIcon'],
-[class*='BackstageSidebarItem-iconContainer'] {
+[class*='BackstageSidebarItem-iconContainer'],
+[class*='BackstageSidebarSubmenuItem-label'] {
   color: var(--efx-brand-gray) !important;
 }
 
 [class*='BackstageSidebarItem-root']:hover,
-[class*='BackstageSidebarItem-buttonItem']:hover {
+[class*='BackstageSidebarItem-buttonItem']:hover,
+[class*='BackstageSidebarSubmenuItem-root']:hover {
   background: var(--efx-gray-200) !important;
 }
 
-[class*='BackstageSidebarItem-selected'] {
+[class*='BackstageSidebarItem-selected'],
+[class*='BackstageSidebarItem-root'].active,
+[class*='BackstageSidebarItem-root'][aria-current='page'] {
   background: var(--efx-surface) !important;
   border-left-color: var(--efx-brand-red) !important;
+  border-left-style: solid !important;
+  border-left-width: 3px !important;
 }
 
-[class*='BackstageSidebarItem-selected']::before {
+[class*='BackstageSidebarItem-selected']::before,
+[class*='BackstageSidebarItem-root'].active::before,
+[class*='BackstageSidebarItem-root'][aria-current='page']::before {
   background: var(--efx-brand-red) !important;
 }
 
 [class*='BackstageSidebarItem-selected'],
+[class*='BackstageSidebarItem-root'].active,
+[class*='BackstageSidebarItem-root'][aria-current='page'],
 [class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-label'],
+[class*='BackstageSidebarItem-root'].active [class*='BackstageSidebarItem-label'],
+[class*='BackstageSidebarItem-root'][aria-current='page']
+  [class*='BackstageSidebarItem-label'],
 [class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-itemIcon'],
+[class*='BackstageSidebarItem-root'].active [class*='BackstageSidebarItem-itemIcon'],
+[class*='BackstageSidebarItem-root'][aria-current='page']
+  [class*='BackstageSidebarItem-itemIcon'],
 [class*='BackstageSidebarItem-selected']
+  [class*='BackstageSidebarItem-iconContainer'],
+[class*='BackstageSidebarItem-root'].active
+  [class*='BackstageSidebarItem-iconContainer'],
+[class*='BackstageSidebarItem-root'][aria-current='page']
   [class*='BackstageSidebarItem-iconContainer'] {
   color: var(--efx-brand-gray) !important;
 }
 
-[class*='BackstageSidebarItem-selected']:hover {
+[class*='BackstageSidebarItem-selected']:hover,
+[class*='BackstageSidebarItem-root'].active:hover,
+[class*='BackstageSidebarItem-root'][aria-current='page']:hover {
   background: var(--efx-surface) !important;
+}
+
+[class*='BackstageSidebarDivider-root'] {
+  background: var(--efx-gray-200) !important;
 }
 
 [class*='BackstageHeader-header'] {

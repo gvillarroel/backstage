@@ -709,6 +709,23 @@ export const renderDocsPage = (snapshot: AiBackstageSnapshot) => (
       title="Documentation sources"
       description="Today this acts as an aggregated knowledge surface. The migration path is to replace direct GitHub links with TechDocs entity links once repository metadata is ready."
     >
+      <Paper
+        style={{
+          marginBottom: 24,
+          padding: 20,
+          border: `1px solid ${equifaxDesignTokens.borderLight}`,
+          background: equifaxDesignTokens.neutralSurface,
+          boxShadow: equifaxDesignTokens.shadowCard,
+        }}
+      >
+        <Typography variant="subtitle2" style={{ marginBottom: 8 }}>
+          Route model
+        </Typography>
+        <Typography variant="body2">
+          <strong>/docs</strong> now serves the curated AI Backstage docs hub.
+          Native TechDocs is still available separately at <strong>/techdocs</strong>.
+        </Typography>
+      </Paper>
       <SimpleTable
         columns={['Name', 'Owner', 'Language', 'Description', 'Docs path']}
         rows={snapshot.repositories.map(repository => [

@@ -4,6 +4,7 @@ import aiBackstagePlugin from '@internal/plugin-ai-backstage';
 import { authModule } from './modules/auth';
 import { navModule } from './modules/nav';
 import { aiThemeModule } from './modules/ai-theme';
+import { techdocsModule } from './modules/techdocs';
 
 export default createApp({
   features: [
@@ -12,5 +13,6 @@ export default createApp({
     authModule,
     navModule,
     aiThemeModule,
+    techdocsModule,
   ],
 });

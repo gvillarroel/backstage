@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "backstage-cli repo start",
-    "build:pages": "node ./scripts/generate-pages-snapshot.mjs && yarn workspace app build --config ../../app-config.yaml --config ../../app-config.github-pages.yaml",
+    "build:pages": "node ./scripts/generate-pages-snapshot.mjs && yarn workspace app build --config ../../app-config.yaml --config ../../app-config.github-pages.yaml && node ./scripts/prepare-pages-dist.mjs",
     "build:backend": "yarn workspace backend build",
     "build:all": "backstage-cli repo build --all",
     "build-image": "yarn workspace backend build-image",

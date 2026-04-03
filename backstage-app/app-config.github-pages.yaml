@@ -2,7 +2,7 @@ app:
   baseUrl: https://gvillarroel.github.io/backstage
 
 organization:
-  name: Equifax
+  name: f(dx)
 
 backend:
   baseUrl: https://gvillarroel.github.io/backstage

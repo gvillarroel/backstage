@@ -9,7 +9,7 @@ Backstage-based internal portal for the AI Backstage experience.
 - `backstage-app/plugins/ai-backstage-backend` — backend plugin serving the snapshot
 - `data/` — CSV seed data still used by the backend snapshot loader
 - `.github/workflows/` — CI and GitHub Pages deployment
-- `EFX_BRAND_REFERENCE.md` — Equifax design and palette reference used for the UI
+- `FDX_BRAND_REFERENCE.md` — f(dx) design and palette reference used for the UI
 
 ## Current product pages
 

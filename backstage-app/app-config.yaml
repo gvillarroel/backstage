@@ -1,5 +1,5 @@
 app:
-  title: Equifax AI Backstage
+  title: f(dx) AI Backstage
   baseUrl: http://localhost:3000
 
   # Enable all packages by default, this will discover packages from packages/app/package.json
@@ -11,7 +11,7 @@ app:
           path: /catalog
 
 organization:
-  name: Equifax
+  name: f(dx)
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins

@@ -40,7 +40,7 @@ import {
   mapLegacyLinkToRoute,
   titleFromSlug,
 } from '../utils/format';
-import { equifaxDesignTokens } from '../components/theme';
+import { fdxDesignTokens } from '../components/theme';
 
 export const SnapshotBoundary = ({
   loading,
@@ -77,9 +77,9 @@ export const renderHomePage = (snapshot: AiBackstageSnapshot) => {
 
   return (
     <AiPage
-      eyebrow="Equifax AI operating surface"
+      eyebrow="f(dx) AI operating surface"
       title="One place to navigate models, communities, skills, repositories, and AI agents."
-      description="This plugin reinterprets the static proof of concept as a Backstage-native internal product surface. The architecture of information, tone, and visual language remain Equifax-led while the experience now lives inside the real Backstage shell."
+      description="This plugin reinterprets the static proof of concept as a Backstage-native internal product surface. The architecture of information, tone, and visual language remain f(dx)-led while the experience now lives inside the real Backstage shell."
       metrics={[
         {
           label: 'Domains',
@@ -416,14 +416,14 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
   const channelCount = new Set(snapshot.agents.map(agent => agent.channel))
     .size;
   const accentByTone: Record<string, string> = {
-    approved: equifaxDesignTokens.shadowGreen,
-    review: equifaxDesignTokens.shadowOrange,
-    optimized: equifaxDesignTokens.shadowRed,
-    preview: equifaxDesignTokens.shadowBlue,
-    evaluation: equifaxDesignTokens.shadowRed,
-    research: equifaxDesignTokens.shadowRed,
-    monitoring: equifaxDesignTokens.shadowOrange,
-    foundation: equifaxDesignTokens.shadowGreen,
+    approved: fdxDesignTokens.shadowGreen,
+    review: fdxDesignTokens.shadowOrange,
+    optimized: fdxDesignTokens.shadowRed,
+    preview: fdxDesignTokens.shadowBlue,
+    evaluation: fdxDesignTokens.shadowRed,
+    research: fdxDesignTokens.shadowRed,
+    monitoring: fdxDesignTokens.shadowOrange,
+    foundation: fdxDesignTokens.shadowGreen,
   };
   const topStatuses = Object.entries(statusCounts)
     .sort((a, b) => b[1] - a[1])
@@ -433,7 +433,7 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
     <AiPage
       eyebrow="Agent directory"
       title="List AI agents as managed assets, not one-off experiments."
-      description="The page now reads like an operating surface, not a spreadsheet transplant. Ownership, production posture, and delivery channel stay visible at scan speed while the layout carries the Equifax brand system more cleanly."
+      description="The page now reads like an operating surface, not a spreadsheet transplant. Ownership, production posture, and delivery channel stay visible at scan speed while the layout carries the f(dx) brand system more cleanly."
       aside={
         <Paper className={classes.heroPanel}>
           <Typography className={classes.heroPanelLabel}>
@@ -492,7 +492,7 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               key={status}
               className={classes.statusOverviewCard}
               style={{
-                boxShadow: `${equifaxDesignTokens.shadowCard}, inset 0 3px 0 ${
+                boxShadow: `${fdxDesignTokens.shadowCard}, inset 0 3px 0 ${
                   accentByTone[
                     snapshot.agents.find(agent => agent.status === status)
                       ?.uiStatus ?? 'preview'
@@ -532,8 +532,8 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               key={agent.name}
               className={classes.agentCard}
               style={{
-                background: equifaxDesignTokens.neutralSurface,
-                boxShadow: `${equifaxDesignTokens.shadowCardStrong}, inset 3px 0 0 ${
+                background: fdxDesignTokens.neutralSurface,
+                boxShadow: `${fdxDesignTokens.shadowCardStrong}, inset 3px 0 0 ${
                   accentByTone[agent.uiStatus] ?? accentByTone.preview
                 }`,
               }}
@@ -669,7 +669,7 @@ export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
   data[CSV bridge data] --> backend[Backstage backend plugin]
   backend --> frontend[AI Backstage frontend plugin]
   frontend --> shell[Backstage shell]
-  shell --> users[Equifax teams]`}
+  shell --> users[f(dx) teams]`}
                 />
               ),
             },
@@ -713,9 +713,9 @@ export const renderDocsPage = (snapshot: AiBackstageSnapshot) => (
         style={{
           marginBottom: 24,
           padding: 20,
-          border: `1px solid ${equifaxDesignTokens.borderLight}`,
-          background: equifaxDesignTokens.neutralSurface,
-          boxShadow: equifaxDesignTokens.shadowCard,
+          border: `1px solid ${fdxDesignTokens.borderLight}`,
+          background: fdxDesignTokens.neutralSurface,
+          boxShadow: fdxDesignTokens.shadowCard,
         }}
       >
         <Typography variant="subtitle2" style={{ marginBottom: 8 }}>
@@ -1051,7 +1051,7 @@ export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => {
     <AiPage
       eyebrow="Design showcase"
       title="Use the showcase as the migration contract for visual parity."
-      description="This page replaces the static component gallery and makes the translated Equifax theme inspectable inside Backstage. It also records the explicit design token mapping used during the rewrite."
+      description="This page replaces the static component gallery and makes the translated f(dx) theme inspectable inside Backstage. It also records the explicit design token mapping used during the rewrite."
       metrics={[
         {
           label: 'Token mappings',
@@ -1075,8 +1075,8 @@ export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => {
           columns={['Legacy token', 'Backstage/MUI target']}
           rows={[
             ['--font-family-open-sans', 'theme.typography.fontFamily'],
-            ['--efx-brand-red', 'theme.palette.primary.main'],
-            ['--efx-primary-blue', 'theme.palette.secondary.main'],
+            ['--fdx-brand-red', 'theme.palette.primary.main'],
+            ['--fdx-primary-blue', 'theme.palette.secondary.main'],
             ['--surface', 'theme.palette.background.paper'],
             ['--bg', 'theme.palette.background.default'],
             ['--line', 'Paper and table borders'],

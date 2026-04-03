@@ -41,7 +41,7 @@ export const SidebarContent = NavContentBlueprint.make({
               variant="caption"
               style={{
                 padding: '0 16px 8px',
-                color: 'var(--efx-gray-400)',
+                color: 'var(--fdx-gray-400)',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',

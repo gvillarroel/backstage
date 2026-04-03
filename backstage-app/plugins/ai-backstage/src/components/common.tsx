@@ -17,42 +17,42 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { EquifaxThemeProvider, equifaxDesignTokens } from './theme';
+import { FdxThemeProvider, fdxDesignTokens } from './theme';
 import { useAiBackstageStyles } from './styles';
 import type { AiBackstageSnapshot } from '../types';
 
 const toneStyles = {
   approved: {
-    background: equifaxDesignTokens.highlightGreen,
-    color: equifaxDesignTokens.shadowGreen,
+    background: fdxDesignTokens.highlightGreen,
+    color: fdxDesignTokens.shadowGreen,
   },
   review: {
-    background: equifaxDesignTokens.highlightOrange,
-    color: equifaxDesignTokens.shadowOrange,
+    background: fdxDesignTokens.highlightOrange,
+    color: fdxDesignTokens.shadowOrange,
   },
   optimized: {
-    background: equifaxDesignTokens.highlightRed,
-    color: equifaxDesignTokens.shadowRed,
+    background: fdxDesignTokens.highlightRed,
+    color: fdxDesignTokens.shadowRed,
   },
   preview: {
-    background: equifaxDesignTokens.highlightBlue,
-    color: equifaxDesignTokens.shadowBlue,
+    background: fdxDesignTokens.highlightBlue,
+    color: fdxDesignTokens.shadowBlue,
   },
   evaluation: {
-    background: equifaxDesignTokens.highlightRed,
-    color: equifaxDesignTokens.shadowRed,
+    background: fdxDesignTokens.highlightRed,
+    color: fdxDesignTokens.shadowRed,
   },
   research: {
-    background: equifaxDesignTokens.highlightRed,
-    color: equifaxDesignTokens.shadowRed,
+    background: fdxDesignTokens.highlightRed,
+    color: fdxDesignTokens.shadowRed,
   },
   monitoring: {
-    background: equifaxDesignTokens.highlightOrange,
-    color: equifaxDesignTokens.shadowOrange,
+    background: fdxDesignTokens.highlightOrange,
+    color: fdxDesignTokens.shadowOrange,
   },
   foundation: {
-    background: equifaxDesignTokens.highlightGreen,
-    color: equifaxDesignTokens.shadowGreen,
+    background: fdxDesignTokens.highlightGreen,
+    color: fdxDesignTokens.shadowGreen,
   },
 } as const;
 
@@ -74,7 +74,7 @@ export const AiPage = ({
   const classes = useAiBackstageStyles();
 
   return (
-    <EquifaxThemeProvider>
+    <FdxThemeProvider>
       <Page themeId="tool">
         <Content noPadding>
           <div className={classes.page}>
@@ -111,7 +111,7 @@ export const AiPage = ({
           </div>
         </Content>
       </Page>
-    </EquifaxThemeProvider>
+    </FdxThemeProvider>
   );
 };
 
@@ -302,13 +302,13 @@ export const DiagramCard = ({
             startOnLoad: false,
             theme: 'base',
             themeVariables: {
-              primaryColor: equifaxDesignTokens.brandRed,
-              primaryTextColor: equifaxDesignTokens.gray900,
-              primaryBorderColor: equifaxDesignTokens.brandRed,
-              secondaryColor: equifaxDesignTokens.highlightBlue,
-              tertiaryColor: equifaxDesignTokens.neutralSurfaceSoft,
-              lineColor: equifaxDesignTokens.brandBlue,
-              fontFamily: equifaxDesignTokens.fontFamily,
+              primaryColor: fdxDesignTokens.brandRed,
+              primaryTextColor: fdxDesignTokens.gray900,
+              primaryBorderColor: fdxDesignTokens.brandRed,
+              secondaryColor: fdxDesignTokens.highlightBlue,
+              tertiaryColor: fdxDesignTokens.neutralSurfaceSoft,
+              lineColor: fdxDesignTokens.brandBlue,
+              fontFamily: fdxDesignTokens.fontFamily,
             },
           });
           const rendered = await mermaid.render(id, source);
@@ -497,7 +497,7 @@ export const IconHeadline = ({
 
   return (
     <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-      <Icon style={{ color: equifaxDesignTokens.brandBlue }} />
+      <Icon style={{ color: fdxDesignTokens.brandBlue }} />
       <div>
         <Typography variant="h6">{title}</Typography>
         <Typography className={classes.cardBodyText}>{description}</Typography>

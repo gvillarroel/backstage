@@ -1,35 +1,35 @@
 :root {
   --font-family-open-sans: 'Open Sans', Arial, sans-serif;
-  --efx-brand-red: #9e1b32;
-  --efx-brand-gray: #333e48;
-  --efx-primary-blue: #007298;
-  --efx-gray-100: #e7e7e7;
-  --efx-gray-200: #cfcfcf;
-  --efx-gray-400: #9c9c9c;
-  --efx-gray-600: #696969;
-  --efx-gray-700: #4f4f4f;
-  --efx-gray-900: #1c1c1c;
-  --efx-surface: #ffffff;
-  --efx-surface-soft: #fafbfb;
-  --efx-surface-muted: #f4f5f6;
-  --efx-surface-tint: #fbfbfb;
-  --efx-surface-elevated: #f7f8fa;
-  --efx-surface-layer: #eef2f4;
-  --efx-border: rgba(51, 62, 72, 0.1);
-  --efx-border-strong: rgba(51, 62, 72, 0.18);
-  --efx-shadow: 0 10px 28px rgba(51, 62, 72, 0.05);
-  --efx-shadow-sidebar: 10px 0 24px rgba(51, 62, 72, 0.08);
-  --efx-page-blue-wash: rgba(0, 114, 152, 0.04);
-  --efx-page-blue-wash-strong: rgba(0, 114, 152, 0.06);
+  --fdx-brand-red: #9e1b32;
+  --fdx-brand-gray: #333e48;
+  --fdx-primary-blue: #007298;
+  --fdx-gray-100: #e7e7e7;
+  --fdx-gray-200: #cfcfcf;
+  --fdx-gray-400: #9c9c9c;
+  --fdx-gray-600: #696969;
+  --fdx-gray-700: #4f4f4f;
+  --fdx-gray-900: #1c1c1c;
+  --fdx-surface: #ffffff;
+  --fdx-surface-soft: #fafbfb;
+  --fdx-surface-muted: #f4f5f6;
+  --fdx-surface-tint: #fbfbfb;
+  --fdx-surface-elevated: #f7f8fa;
+  --fdx-surface-layer: #eef2f4;
+  --fdx-border: rgba(51, 62, 72, 0.1);
+  --fdx-border-strong: rgba(51, 62, 72, 0.18);
+  --fdx-shadow: 0 10px 28px rgba(51, 62, 72, 0.05);
+  --fdx-shadow-sidebar: 10px 0 24px rgba(51, 62, 72, 0.08);
+  --fdx-page-blue-wash: rgba(0, 114, 152, 0.04);
+  --fdx-page-blue-wash-strong: rgba(0, 114, 152, 0.06);
 }
 
 body {
   font-family: var(--font-family-open-sans);
-  color: var(--efx-gray-900);
+  color: var(--fdx-gray-900);
   background: linear-gradient(
     180deg,
-    var(--efx-surface-tint) 0%,
-    var(--efx-surface-muted) 100%
+    var(--fdx-surface-tint) 0%,
+    var(--fdx-surface-muted) 100%
   );
 }
 
@@ -38,39 +38,39 @@ body {
 }
 
 [class*='BackstageSidebar-drawer'] {
-  background: var(--efx-gray-100) !important;
-  border-right: 1px solid var(--efx-gray-200);
-  box-shadow: var(--efx-shadow-sidebar);
+  background: var(--fdx-gray-100) !important;
+  border-right: 1px solid var(--fdx-gray-200);
+  box-shadow: var(--fdx-shadow-sidebar);
 }
 
 [data-testid='sidebar-root'] > [class*='BackstageSidebar-drawer'] {
-  background: var(--efx-gray-100) !important;
-  border-right: 1px solid var(--efx-gray-200) !important;
-  box-shadow: var(--efx-shadow-sidebar) !important;
+  background: var(--fdx-gray-100) !important;
+  border-right: 1px solid var(--fdx-gray-200) !important;
+  box-shadow: var(--fdx-shadow-sidebar) !important;
 }
 
 [data-testid='sidebar-root'] a[href] {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
   border-left: 3px solid transparent;
   border-radius: 0;
 }
 
 [data-testid='sidebar-root'] a[href]:hover {
-  background: var(--efx-gray-200) !important;
+  background: var(--fdx-gray-200) !important;
 }
 
 [data-testid='sidebar-root'] a[href][aria-current='page'] {
-  background: var(--efx-surface) !important;
-  border-left-color: var(--efx-brand-red) !important;
-  color: var(--efx-brand-gray) !important;
+  background: var(--fdx-surface) !important;
+  border-left-color: var(--fdx-brand-red) !important;
+  color: var(--fdx-brand-gray) !important;
 }
 
 [data-testid='sidebar-root'] a[href][aria-current='page']:hover {
-  background: var(--efx-surface) !important;
+  background: var(--fdx-surface) !important;
 }
 
 [data-testid='sidebar-root'] a[href][aria-current='page'] * {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
 }
 
 [class*='BackstageSidebarItem-root'],
@@ -87,20 +87,20 @@ body {
 [class*='BackstageSidebarItem-itemIcon'],
 [class*='BackstageSidebarItem-iconContainer'],
 [class*='BackstageSidebarSubmenuItem-label'] {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
 }
 
 [class*='BackstageSidebarItem-root']:hover,
 [class*='BackstageSidebarItem-buttonItem']:hover,
 [class*='BackstageSidebarSubmenuItem-root']:hover {
-  background: var(--efx-gray-200) !important;
+  background: var(--fdx-gray-200) !important;
 }
 
 [class*='BackstageSidebarItem-selected'],
 [class*='BackstageSidebarItem-root'].active,
 [class*='BackstageSidebarItem-root'][aria-current='page'] {
-  background: var(--efx-surface) !important;
-  border-left-color: var(--efx-brand-red) !important;
+  background: var(--fdx-surface) !important;
+  border-left-color: var(--fdx-brand-red) !important;
   border-left-style: solid !important;
   border-left-width: 3px !important;
 }
@@ -108,7 +108,7 @@ body {
 [class*='BackstageSidebarItem-selected']::before,
 [class*='BackstageSidebarItem-root'].active::before,
 [class*='BackstageSidebarItem-root'][aria-current='page']::before {
-  background: var(--efx-brand-red) !important;
+  background: var(--fdx-brand-red) !important;
 }
 
 [class*='BackstageSidebarItem-selected'],
@@ -128,23 +128,23 @@ body {
   [class*='BackstageSidebarItem-iconContainer'],
 [class*='BackstageSidebarItem-root'][aria-current='page']
   [class*='BackstageSidebarItem-iconContainer'] {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
 }
 
 [class*='BackstageSidebarItem-selected']:hover,
 [class*='BackstageSidebarItem-root'].active:hover,
 [class*='BackstageSidebarItem-root'][aria-current='page']:hover {
-  background: var(--efx-surface) !important;
+  background: var(--fdx-surface) !important;
 }
 
 [class*='BackstageSidebarDivider-root'] {
-  background: var(--efx-gray-200) !important;
+  background: var(--fdx-gray-200) !important;
 }
 
 [class*='BackstageHeader-header'] {
-  background: var(--efx-surface) !important;
+  background: var(--fdx-surface) !important;
   box-shadow: none !important;
-  border-bottom: 1px solid var(--efx-gray-100);
+  border-bottom: 1px solid var(--fdx-gray-100);
   min-height: 56px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -152,7 +152,7 @@ body {
 
 [class*='BackstageHeader-title'],
 [class*='BackstageHeader-type'] {
-  color: var(--efx-gray-600) !important;
+  color: var(--fdx-gray-600) !important;
 }
 
 [class*='BackstageHeader-type'] {
@@ -162,13 +162,13 @@ body {
 [class*='BackstageSidebarPage-root'] {
   background: linear-gradient(
     180deg,
-    var(--efx-surface-elevated) 0%,
-    var(--efx-surface-layer) 100%
+    var(--fdx-surface-elevated) 0%,
+    var(--fdx-surface-layer) 100%
   );
 }
 
 a {
-  color: var(--efx-primary-blue);
+  color: var(--fdx-primary-blue);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
@@ -176,49 +176,49 @@ a {
 .MuiLink-root.MuiTypography-colorPrimary,
 a.MuiTypography-colorPrimary,
 [class*='CatalogReactEntityDisplayName-root'] {
-  color: var(--efx-primary-blue) !important;
+  color: var(--fdx-primary-blue) !important;
 }
 
 .MuiButton-outlinedPrimary {
-  color: var(--efx-brand-red) !important;
-  border-color: color-mix(in srgb, var(--efx-brand-red) 50%, transparent) !important;
+  color: var(--fdx-brand-red) !important;
+  border-color: color-mix(in srgb, var(--fdx-brand-red) 50%, transparent) !important;
 }
 
 .MuiButton-outlinedPrimary:hover {
-  background: color-mix(in srgb, var(--efx-brand-red) 8%, white) !important;
-  border-color: var(--efx-brand-red) !important;
+  background: color-mix(in srgb, var(--fdx-brand-red) 8%, white) !important;
+  border-color: var(--fdx-brand-red) !important;
 }
 
 [class*='makeStyles-ownedBy'] {
-  color: var(--efx-primary-blue) !important;
+  color: var(--fdx-primary-blue) !important;
 }
 
 [class*='bui-PluginHeaderToolbarName'] {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
 }
 
 [class*='bui-Tab'] {
-  color: var(--efx-brand-gray) !important;
+  color: var(--fdx-brand-gray) !important;
   border-bottom-color: transparent !important;
 }
 
 [class*='bui-Tab'][data-selected='true'],
 [class*='bui-Tab'][aria-selected='true'] {
-  color: var(--efx-brand-red) !important;
-  border-bottom-color: var(--efx-brand-red) !important;
+  color: var(--fdx-brand-red) !important;
+  border-bottom-color: var(--fdx-brand-red) !important;
 }
 
 [class*='bui-Tab']:hover {
-  color: var(--efx-brand-red) !important;
+  color: var(--fdx-brand-red) !important;
 }
 
 [class*='BackstageItemCardHeader-root'] {
   background: linear-gradient(
     135deg,
-    var(--efx-brand-gray) 0%,
-    color-mix(in srgb, var(--efx-brand-gray) 82%, white) 100%
+    var(--fdx-brand-gray) 0%,
+    color-mix(in srgb, var(--fdx-brand-gray) 82%, white) 100%
   ) !important;
-  color: var(--efx-surface) !important;
+  color: var(--fdx-surface) !important;
 }
 
 [class*='BackstageItemCardHeader-root'] * {

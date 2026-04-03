@@ -7,7 +7,7 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline';
 import type { Theme } from '@material-ui/core/styles';
 
-export const equifaxDesignTokens = {
+export const fdxDesignTokens = {
   fontFamily: '"Open Sans", Arial, sans-serif',
   brandRed: '#9e1b32',
   brandBlue: '#007298',
@@ -61,34 +61,34 @@ export const equifaxDesignTokens = {
 
 export const designTokenMap = [
   ['--font-family-open-sans', 'theme.typography.fontFamily'],
-  ['--efx-brand-red', 'theme.palette.primary.main'],
-  ['--efx-primary-blue', 'theme.palette.secondary.main'],
+  ['--fdx-brand-red', 'theme.palette.primary.main'],
+  ['--fdx-primary-blue', 'theme.palette.secondary.main'],
   ['--surface', 'theme.palette.background.paper'],
   ['--bg', 'theme.palette.background.default'],
   ['--line', 'component borders'],
   ['--shadow', 'paper elevation override'],
 ] as const;
 
-const equifaxTheme = createMuiTheme({
+const fdxTheme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: equifaxDesignTokens.brandRed,
+      main: fdxDesignTokens.brandRed,
     },
     secondary: {
-      main: equifaxDesignTokens.brandBlue,
+      main: fdxDesignTokens.brandBlue,
     },
     background: {
-      default: equifaxDesignTokens.neutralSurfaceMuted,
-      paper: equifaxDesignTokens.neutralSurface,
+      default: fdxDesignTokens.neutralSurfaceMuted,
+      paper: fdxDesignTokens.neutralSurface,
     },
     text: {
-      primary: equifaxDesignTokens.gray900,
-      secondary: equifaxDesignTokens.gray700,
+      primary: fdxDesignTokens.gray900,
+      secondary: fdxDesignTokens.gray700,
     },
   },
   typography: {
-    fontFamily: equifaxDesignTokens.fontFamily,
+    fontFamily: fdxDesignTokens.fontFamily,
     h1: {
       fontWeight: 800,
       letterSpacing: '-0.03em',
@@ -112,7 +112,7 @@ const equifaxTheme = createMuiTheme({
   overrides: {
     MuiPaper: {
       root: {
-        boxShadow: equifaxDesignTokens.shadow,
+        boxShadow: fdxDesignTokens.shadow,
         backgroundImage: 'none',
       },
       rounded: {
@@ -131,8 +131,8 @@ const equifaxTheme = createMuiTheme({
     },
     MuiTableCell: {
       head: {
-        backgroundColor: equifaxDesignTokens.tableHeadSurface,
-        color: equifaxDesignTokens.brandGray,
+        backgroundColor: fdxDesignTokens.tableHeadSurface,
+        color: fdxDesignTokens.brandGray,
         fontSize: '0.8rem',
         fontWeight: 800,
         letterSpacing: '0.1em',
@@ -149,10 +149,10 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
       background: 'transparent',
     },
     '& a': {
-      color: equifaxTheme.palette.secondary.main,
+      color: fdxTheme.palette.secondary.main,
     },
     '& a:hover': {
-      color: equifaxDesignTokens.shadowBlue,
+      color: fdxDesignTokens.shadowBlue,
     },
     '& .MuiCard-root, & .MuiPaper-root': {
       borderColor: 'transparent',
@@ -165,7 +165,7 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const EquifaxThemeProvider = ({
+export const FdxThemeProvider = ({
   children,
 }: {
   children: React.ReactNode;
@@ -173,7 +173,7 @@ export const EquifaxThemeProvider = ({
   const classes = useThemeBridgeStyles();
 
   return (
-    <ThemeProvider theme={equifaxTheme}>
+    <ThemeProvider theme={fdxTheme}>
       <CssBaseline />
       <div className={classes.root}>{children}</div>
     </ThemeProvider>

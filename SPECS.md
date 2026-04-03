@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is a proof of concept for defining an Equifax AI backstage that:
+This repository is a proof of concept for defining an f(dx) AI backstage that:
 
 - documents the visual direction for an AI-focused internal surface
 - defines the core AI pages that should exist in the experience
@@ -12,7 +12,7 @@ For terminology, "backstage" in this spec refers to the open source Backstage pl
 
 ## Product Framing
 
-The product should feel like an internal operating surface for AI work at Equifax:
+The product should feel like an internal operating surface for AI work at f(dx):
 
 - part AI catalog
 - part enablement hub
@@ -26,13 +26,13 @@ The experience should not look like a generic admin panel. It should feel struct
 ### Tone
 
 - Minimal, structured, and trustworthy
-- Branded with Equifax visual cues without feeling promotional
+- Branded with f(dx) visual cues without feeling promotional
 - Clear enough for operational use, not just presentation
 
 ### Style Principles
 
 - Open Sans as the primary typeface for both headings and body copy
-- Equifax red and blue used as controlled accents over calm neutral surfaces
+- f(dx) red and blue used as controlled accents over calm neutral surfaces
 - Square or rectilinear components with restrained elevation
 - Strong section separation with light borders and precise spacing
 - Good readability on both desktop and mobile
@@ -55,7 +55,7 @@ The experience should not look like a generic admin panel. It should feel struct
 ### Home (`index.html`)
 
 Purpose:
-Present the Equifax AI backstage vision, main entry points, and key platform signals.
+Present the f(dx) AI backstage vision, main entry points, and key platform signals.
 
 Must include:
 
@@ -184,7 +184,7 @@ The first implementation should provide:
 - a multipage web experience
 - a home page that routes into the initial AI pages
 - dedicated pages representing the initial AI topics
-- a visible Equifax-aligned visual direction
+- a visible f(dx)-aligned visual direction
 - sample model, community, skill, and agent data to demonstrate the intended structure
 - CSV-driven data with a build script to regenerate content
 - Markdown twins for every page, suitable for agent navigation

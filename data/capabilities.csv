@@ -10,4 +10,5 @@ control-surface,shield,Control Surface,"Policy references, approved connectors, 
 metrics-adoption,monitoring,Metrics & Adoption,"Adoption rates, quality signals, cost tracking, and policy compliance dashboards.",,index
 api-gateway,token,API Gateway,"Manage API keys, rate limits, model routing, and usage quotas across teams.",,index
 evaluation-lab,science,Evaluation Lab,"Run benchmarks, compare model outputs, and validate prompt performance before production.",,index
+tech-radar,bubble_chart,Tech Radar,"Track recommended, trial, assess, and hold technologies so teams can align AI choices with an explicit adoption posture.",,"index,foundations"
 documentation-hub,description,Documentation Hub,"Centralized guides, onboarding flows, best practices, and runbooks for AI work.",docs.html,index

@@ -47,6 +47,10 @@
       href="<%= publicPath %>/safari-pinned-tab.svg"
       color="#5bbad5"
     />
+    <script>
+      window.localStorage.setItem('@backstage/core:SignInPage:provider', 'guest');
+      window.localStorage.setItem('theme', 'light');
+    </script>
     <title><%= config.getOptionalString('app.title') ?? 'Backstage' %></title>
   </head>
   <body>

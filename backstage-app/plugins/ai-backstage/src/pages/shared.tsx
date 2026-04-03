@@ -209,6 +209,20 @@ export const renderHomePage = (snapshot: AiBackstageSnapshot) => {
                 />
               ),
             },
+            {
+              key: 'tech-radar',
+              title: 'Tech Radar',
+              eyebrow: 'Adoption guidance',
+              description:
+                'Highlights technologies by adoption posture so teams can distinguish what is recommended, trial-stage, under assessment, or on hold.',
+              footer: (
+                <IconHeadline
+                  icon={BubbleChartIcon}
+                  title="Decision support"
+                  description="Makes technology posture visible before teams commit to tools or patterns."
+                />
+              ),
+            },
           ]}
         />
       </SectionBlock>
@@ -478,7 +492,7 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               key={status}
               className={classes.statusOverviewCard}
               style={{
-                boxShadow: `0 12px 26px rgba(51, 62, 72, 0.07), inset 0 3px 0 ${
+                boxShadow: `${equifaxDesignTokens.shadowCard}, inset 0 3px 0 ${
                   accentByTone[
                     snapshot.agents.find(agent => agent.status === status)
                       ?.uiStatus ?? 'preview'
@@ -519,7 +533,7 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               className={classes.agentCard}
               style={{
                 background: equifaxDesignTokens.neutralSurface,
-                boxShadow: `0 12px 30px rgba(51, 62, 72, 0.07), inset 3px 0 0 ${
+                boxShadow: `${equifaxDesignTokens.shadowCardStrong}, inset 3px 0 0 ${
                   accentByTone[agent.uiStatus] ?? accentByTone.preview
                 }`,
               }}

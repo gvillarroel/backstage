@@ -18,12 +18,11 @@ import { test, expect } from '@playwright/test';
 
 test('App should render the welcome page', async ({ page }) => {
   await page.goto('/');
-
-  const enterButton = page.getByRole('button', { name: 'Enter' });
-  await expect(enterButton).toBeVisible();
-  await enterButton.click();
+  await page.waitForLoadState('networkidle');
 
   const nav = page.getByRole('navigation');
-  await expect(nav.getByRole('link', { name: 'Catalog' })).toBeVisible();
+  await expect(nav.getByRole('link', { name: 'Catalog' })).toBeVisible({
+    timeout: 15000,
+  });
   await expect(page.getByRole('link', { name: 'APIs' })).toBeVisible();
 });

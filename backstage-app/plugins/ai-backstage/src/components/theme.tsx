@@ -34,9 +34,29 @@ export const equifaxDesignTokens = {
   neutralSurface: '#ffffff',
   neutralSurfaceSoft: '#fafbfb',
   neutralSurfaceMuted: '#f4f5f6',
+  neutralSurfaceTint: '#fbfbfb',
+  neutralSurfaceElevated: '#f7f8fa',
+  neutralSurfaceLayer: '#eef2f4',
+  tableHeadSurface: '#f1f3f4',
   borderLight: 'rgba(51, 62, 72, 0.1)',
   borderStrong: 'rgba(51, 62, 72, 0.18)',
   shadow: '0 10px 28px rgba(51, 62, 72, 0.05)',
+  shadowSoft: '0 8px 20px rgba(51, 62, 72, 0.05)',
+  shadowRaised: '0 10px 24px rgba(51, 62, 72, 0.06)',
+  shadowCard: '0 12px 28px rgba(51, 62, 72, 0.07)',
+  shadowCardStrong: '0 12px 30px rgba(51, 62, 72, 0.07)',
+  shadowHero: '0 18px 40px rgba(51, 62, 72, 0.08)',
+  shadowSidebar: '10px 0 24px rgba(51, 62, 72, 0.08)',
+  shadowDarkPanel: '0 16px 28px rgba(35, 49, 61, 0.16)',
+  overlayWhite12: 'rgba(255, 255, 255, 0.12)',
+  overlayWhite72: 'rgba(255, 255, 255, 0.72)',
+  overlayWhite82: 'rgba(255, 255, 255, 0.82)',
+  pageBlueWash: 'rgba(0, 114, 152, 0.04)',
+  pageBlueWashStrong: 'rgba(0, 114, 152, 0.06)',
+  pageBlueWashCard: 'rgba(0, 114, 152, 0.045)',
+  onDarkPrimary: '#ffffff',
+  onDarkSecondary: '#f7f9fb',
+  onCodeSurface: '#f7f7f7',
 } as const;
 
 export const designTokenMap = [
@@ -63,8 +83,8 @@ const equifaxTheme = createMuiTheme({
       paper: equifaxDesignTokens.neutralSurface,
     },
     text: {
-      primary: '#1c1c1c',
-      secondary: '#4f4f4f',
+      primary: equifaxDesignTokens.gray900,
+      secondary: equifaxDesignTokens.gray700,
     },
   },
   typography: {
@@ -111,7 +131,7 @@ const equifaxTheme = createMuiTheme({
     },
     MuiTableCell: {
       head: {
-        backgroundColor: '#f1f3f4',
+        backgroundColor: equifaxDesignTokens.tableHeadSurface,
         color: equifaxDesignTokens.brandGray,
         fontSize: '0.8rem',
         fontWeight: 800,
@@ -132,7 +152,7 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
       color: equifaxTheme.palette.secondary.main,
     },
     '& a:hover': {
-      color: '#004d66',
+      color: equifaxDesignTokens.shadowBlue,
     },
     '& .MuiCard-root, & .MuiPaper-root': {
       borderColor: 'transparent',

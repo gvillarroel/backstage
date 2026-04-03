@@ -4,25 +4,33 @@
   --efx-brand-gray: #333e48;
   --efx-primary-blue: #007298;
   --efx-gray-100: #e7e7e7;
+  --efx-gray-200: #cfcfcf;
+  --efx-gray-400: #9c9c9c;
+  --efx-gray-600: #696969;
   --efx-gray-700: #4f4f4f;
   --efx-gray-900: #1c1c1c;
   --efx-surface: #ffffff;
   --efx-surface-soft: #fafbfb;
   --efx-surface-muted: #f4f5f6;
+  --efx-surface-tint: #fbfbfb;
+  --efx-surface-elevated: #f7f8fa;
+  --efx-surface-layer: #eef2f4;
   --efx-border: rgba(51, 62, 72, 0.1);
   --efx-border-strong: rgba(51, 62, 72, 0.18);
   --efx-shadow: 0 10px 28px rgba(51, 62, 72, 0.05);
+  --efx-shadow-sidebar: 10px 0 24px rgba(51, 62, 72, 0.08);
+  --efx-page-blue-wash: rgba(0, 114, 152, 0.04);
+  --efx-page-blue-wash-strong: rgba(0, 114, 152, 0.06);
 }
 
 body {
   font-family: var(--font-family-open-sans);
   color: var(--efx-gray-900);
-  background: radial-gradient(
-      circle at top left,
-      rgba(0, 114, 152, 0.04),
-      transparent 26%
-    ),
-    linear-gradient(180deg, #fbfbfb 0%, var(--efx-surface-muted) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--efx-surface-tint) 0%,
+    var(--efx-surface-muted) 100%
+  );
 }
 
 #root {
@@ -30,9 +38,9 @@ body {
 }
 
 [class*='BackstageSidebar-drawer'] {
-  background: #e7e7e7 !important;
-  border-right: 1px solid #cfcfcf;
-  box-shadow: 10px 0 24px rgba(51, 62, 72, 0.08);
+  background: var(--efx-gray-100) !important;
+  border-right: 1px solid var(--efx-gray-200);
+  box-shadow: var(--efx-shadow-sidebar);
 }
 
 [class*='BackstageSidebarItem-root'],
@@ -46,26 +54,39 @@ body {
 [class*='BackstageSidebarItem-label'],
 [class*='BackstageSidebarItem-itemIcon'],
 [class*='BackstageSidebarItem-iconContainer'] {
-  color: #333e48 !important;
+  color: var(--efx-brand-gray) !important;
 }
 
 [class*='BackstageSidebarItem-root']:hover,
 [class*='BackstageSidebarItem-buttonItem']:hover {
-  background: #cfcfcf !important;
+  background: var(--efx-gray-200) !important;
 }
 
 [class*='BackstageSidebarItem-selected'] {
-  background: #ffffff !important;
+  background: var(--efx-surface) !important;
+  border-left-color: var(--efx-brand-red) !important;
 }
 
 [class*='BackstageSidebarItem-selected']::before {
   background: var(--efx-brand-red) !important;
 }
 
+[class*='BackstageSidebarItem-selected'],
+[class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-label'],
+[class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-itemIcon'],
+[class*='BackstageSidebarItem-selected']
+  [class*='BackstageSidebarItem-iconContainer'] {
+  color: var(--efx-brand-gray) !important;
+}
+
+[class*='BackstageSidebarItem-selected']:hover {
+  background: var(--efx-surface) !important;
+}
+
 [class*='BackstageHeader-header'] {
-  background: #ffffff !important;
+  background: var(--efx-surface) !important;
   box-shadow: none !important;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid var(--efx-gray-100);
   min-height: 56px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -73,7 +94,7 @@ body {
 
 [class*='BackstageHeader-title'],
 [class*='BackstageHeader-type'] {
-  color: #696969 !important;
+  color: var(--efx-gray-600) !important;
 }
 
 [class*='BackstageHeader-type'] {
@@ -81,16 +102,76 @@ body {
 }
 
 [class*='BackstageSidebarPage-root'] {
-  background: radial-gradient(
-      circle at top right,
-      rgba(0, 114, 152, 0.06),
-      transparent 24%
-    ),
-    linear-gradient(180deg, #f7f8fa 0%, #eef2f4 100%);
+  background: linear-gradient(
+    180deg,
+    var(--efx-surface-elevated) 0%,
+    var(--efx-surface-layer) 100%
+  );
 }
 
 a {
   color: var(--efx-primary-blue);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+
+.MuiLink-root.MuiTypography-colorPrimary,
+a.MuiTypography-colorPrimary,
+[class*='CatalogReactEntityDisplayName-root'] {
+  color: var(--efx-primary-blue) !important;
+}
+
+.MuiButton-outlinedPrimary {
+  color: var(--efx-brand-red) !important;
+  border-color: color-mix(in srgb, var(--efx-brand-red) 50%, transparent) !important;
+}
+
+.MuiButton-outlinedPrimary:hover {
+  background: color-mix(in srgb, var(--efx-brand-red) 8%, white) !important;
+  border-color: var(--efx-brand-red) !important;
+}
+
+[class*='makeStyles-ownedBy'] {
+  color: var(--efx-primary-blue) !important;
+}
+
+[class*='bui-PluginHeaderToolbarName'] {
+  color: var(--efx-brand-gray) !important;
+}
+
+[class*='bui-Tab'] {
+  color: var(--efx-brand-gray) !important;
+  border-bottom-color: transparent !important;
+}
+
+[class*='bui-Tab'][data-selected='true'],
+[class*='bui-Tab'][aria-selected='true'] {
+  color: var(--efx-brand-red) !important;
+  border-bottom-color: var(--efx-brand-red) !important;
+}
+
+[class*='bui-Tab']:hover {
+  color: var(--efx-brand-red) !important;
+}
+
+[class*='BackstageItemCardHeader-root'] {
+  background: linear-gradient(
+    135deg,
+    var(--efx-brand-gray) 0%,
+    color-mix(in srgb, var(--efx-brand-gray) 82%, white) 100%
+  ) !important;
+  color: var(--efx-surface) !important;
+}
+
+[class*='BackstageItemCardHeader-root'] * {
+  color: inherit !important;
+}
+
+/* Keep settings on a single supported theme by hiding the theme chooser row. */
+[class*='BackstageContent-root']
+  .MuiPaper-root.MuiCard-root
+  .MuiCardContent-root
+  > .MuiList-root
+  > .MuiListItem-container:first-child {
+  display: none !important;
 }

@@ -49,6 +49,30 @@ body {
   box-shadow: var(--efx-shadow-sidebar) !important;
 }
 
+[data-testid='sidebar-root'] a[href] {
+  color: var(--efx-brand-gray) !important;
+  border-left: 3px solid transparent;
+  border-radius: 0;
+}
+
+[data-testid='sidebar-root'] a[href]:hover {
+  background: var(--efx-gray-200) !important;
+}
+
+[data-testid='sidebar-root'] a[href][aria-current='page'] {
+  background: var(--efx-surface) !important;
+  border-left-color: var(--efx-brand-red) !important;
+  color: var(--efx-brand-gray) !important;
+}
+
+[data-testid='sidebar-root'] a[href][aria-current='page']:hover {
+  background: var(--efx-surface) !important;
+}
+
+[data-testid='sidebar-root'] a[href][aria-current='page'] * {
+  color: var(--efx-brand-gray) !important;
+}
+
 [class*='BackstageSidebarItem-root'],
 [class*='BackstageSidebarItem-buttonItem'],
 [class*='BackstageSidebarSubmenuItem-root'] {

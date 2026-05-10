@@ -56,6 +56,7 @@ export const SidebarContent = NavContentBlueprint.make({
             {nav.take('page:ai-backstage/agents')}
             {nav.take('page:ai-backstage/foundations')}
             {nav.take('page:ai-backstage/docs')}
+            {nav.take('page:ai-backstage/platform')}
             {nav.take('page:ai-backstage/showcase')}
             <SidebarDivider />
             <SidebarScrollWrapper>

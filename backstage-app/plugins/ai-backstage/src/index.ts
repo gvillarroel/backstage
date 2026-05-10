@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
@@ -42,11 +42,11 @@ export default createFrontendPlugin({
       params: {
         path: '/',
         title: 'AI Backstage',
-        icon: React.createElement(HomeIcon),
+        icon: createElement(HomeIcon),
         routeRef: rootRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/HomePage').then(m => React.createElement(m.HomePage)),
+          import('./pages/HomePage').then(m => createElement(m.HomePage)),
       },
     }),
     PageBlueprint.make({
@@ -54,13 +54,11 @@ export default createFrontendPlugin({
       params: {
         path: '/models',
         title: 'AI Models',
-        icon: React.createElement(TableChartIcon),
+        icon: createElement(TableChartIcon),
         routeRef: modelsRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/ModelsPage').then(m =>
-            React.createElement(m.ModelsPage),
-          ),
+          import('./pages/ModelsPage').then(m => createElement(m.ModelsPage)),
       },
     }),
     PageBlueprint.make({
@@ -68,13 +66,11 @@ export default createFrontendPlugin({
       params: {
         path: '/skills',
         title: 'AI Skills',
-        icon: React.createElement(FlashOnIcon),
+        icon: createElement(FlashOnIcon),
         routeRef: skillsRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/SkillsPage').then(m =>
-            React.createElement(m.SkillsPage),
-          ),
+          import('./pages/SkillsPage').then(m => createElement(m.SkillsPage)),
       },
     }),
     PageBlueprint.make({
@@ -82,12 +78,12 @@ export default createFrontendPlugin({
       params: {
         path: '/communities',
         title: 'AI Communities',
-        icon: React.createElement(GroupWorkIcon),
+        icon: createElement(GroupWorkIcon),
         routeRef: communitiesRouteRef,
         noHeader: true,
         loader: () =>
           import('./pages/CommunitiesPage').then(m =>
-            React.createElement(m.CommunitiesPage),
+            createElement(m.CommunitiesPage),
           ),
       },
     }),
@@ -96,13 +92,11 @@ export default createFrontendPlugin({
       params: {
         path: '/agents',
         title: 'AI Agents',
-        icon: React.createElement(MemoryIcon),
+        icon: createElement(MemoryIcon),
         routeRef: agentsRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/AgentsPage').then(m =>
-            React.createElement(m.AgentsPage),
-          ),
+          import('./pages/AgentsPage').then(m => createElement(m.AgentsPage)),
       },
     }),
     PageBlueprint.make({
@@ -110,12 +104,12 @@ export default createFrontendPlugin({
       params: {
         path: '/foundations',
         title: 'AI Foundations',
-        icon: React.createElement(AccountTreeIcon),
+        icon: createElement(AccountTreeIcon),
         routeRef: foundationsRouteRef,
         noHeader: true,
         loader: () =>
           import('./pages/FoundationsPage').then(m =>
-            React.createElement(m.FoundationsPage),
+            createElement(m.FoundationsPage),
           ),
       },
     }),
@@ -124,11 +118,11 @@ export default createFrontendPlugin({
       params: {
         path: '/docs',
         title: 'AI Docs',
-        icon: React.createElement(DescriptionIcon),
+        icon: createElement(DescriptionIcon),
         routeRef: docsRouteRef,
         noHeader: true,
         loader: () =>
-          import('./pages/DocsPage').then(m => React.createElement(m.DocsPage)),
+          import('./pages/DocsPage').then(m => createElement(m.DocsPage)),
       },
     }),
     PageBlueprint.make({
@@ -136,12 +130,12 @@ export default createFrontendPlugin({
       params: {
         path: '/platform',
         title: 'Backstage Platform',
-        icon: React.createElement(AppsIcon),
+        icon: createElement(AppsIcon),
         routeRef: platformRouteRef,
         noHeader: true,
         loader: () =>
           import('./pages/PlatformPage').then(m =>
-            React.createElement(m.PlatformPage),
+            createElement(m.PlatformPage),
           ),
       },
     }),
@@ -150,12 +144,12 @@ export default createFrontendPlugin({
       params: {
         path: '/showcase',
         title: 'AI Showcase',
-        icon: React.createElement(PaletteIcon),
+        icon: createElement(PaletteIcon),
         routeRef: showcaseRouteRef,
         noHeader: true,
         loader: () =>
           import('./pages/ShowcasePage').then(m =>
-            React.createElement(m.ShowcasePage),
+            createElement(m.ShowcasePage),
           ),
       },
     }),

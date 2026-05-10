@@ -6,6 +6,11 @@ Track agents as managed products with owners, channels, risk posture, and produc
 
 **6 agents** in the directory.
 
+## Decision Records
+
+- Record durable technical or workflow decisions as ADRs under `.specs/adr/*.md`.
+- Read existing ADRs before changing a previously chosen technical direction.
+
 ## Agents
 
 | Agent | Status | Owner | Channel | Description |

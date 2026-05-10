@@ -26,15 +26,21 @@ export const useAiBackstageSnapshot = () => {
     const load = async () => {
       if (!inflightRequest) {
         inflightRequest = (async () => {
-          const appBaseUrl = configApi.getOptionalString('app.baseUrl') ?? window.location.origin;
+          const appBaseUrl =
+            configApi.getOptionalString('app.baseUrl') ??
+            window.location.origin;
           const appBasePath = new URL(appBaseUrl).pathname.replace(/\/$/, '');
-          const staticSnapshotUrl = `${appBasePath || ''}/ai-backstage-snapshot.json`;
+          const staticSnapshotUrl = `${
+            appBasePath || ''
+          }/ai-backstage-snapshot.json`;
 
           try {
             const baseUrl = await discoveryApi.getBaseUrl('ai-backstage');
             const response = await fetchApi.fetch(`${baseUrl}/snapshot`);
             if (!response.ok) {
-              throw new Error(`AI Backstage data request failed: ${response.status}`);
+              throw new Error(
+                `AI Backstage data request failed: ${response.status}`,
+              );
             }
             return (await response.json()) as AiBackstageSnapshot;
           } catch (apiError) {

@@ -1,5 +1,5 @@
 export const formatCurrency = (value: number | null) =>
-  value == null ? '—' : `$${value.toFixed(2)}`;
+  value === null ? '—' : `$${value.toFixed(2)}`;
 
 export const formatInteger = (value: number) => value.toLocaleString('en-US');
 

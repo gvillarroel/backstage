@@ -4,7 +4,13 @@ import { parse } from 'csv-parse/sync';
 
 const repoRoot = path.resolve(process.cwd(), '..');
 const dataDir = path.join(repoRoot, 'data');
-const outputPath = path.join(process.cwd(), 'packages', 'app', 'public', 'ai-backstage-snapshot.json');
+const outputPath = path.join(
+  process.cwd(),
+  'packages',
+  'app',
+  'public',
+  'ai-backstage-snapshot.json',
+);
 
 const statusMap = {
   'Approved for build': 'approved',
@@ -45,14 +51,15 @@ const toNumberOrNull = value => {
 
 const resolveUiStatus = value => statusMap[String(value ?? '')] ?? 'evaluation';
 
-const [models, repositories, skills, communities, agents, capabilities] = await Promise.all([
-  readCsv('models.csv'),
-  readCsv('repositories.csv'),
-  readCsv('skills.csv'),
-  readCsv('communities.csv'),
-  readCsv('agents.csv'),
-  readCsv('capabilities.csv'),
-]);
+const [models, repositories, skills, communities, agents, capabilities] =
+  await Promise.all([
+    readCsv('models.csv'),
+    readCsv('repositories.csv'),
+    readCsv('skills.csv'),
+    readCsv('communities.csv'),
+    readCsv('agents.csv'),
+    readCsv('capabilities.csv'),
+  ]);
 
 const snapshot = {
   models: models.map(model => ({

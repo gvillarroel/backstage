@@ -10,13 +10,13 @@
 
 ## Entity Summary
 
-| Field | Value |
-| --- | --- |
-| Kind | `Component` |
-| Name | `example-website` |
-| Namespace | `default` |
-| Owner | `guests` |
-| Lifecycle | `experimental` |
+| Field     | Value             |
+| --------- | ----------------- |
+| Kind      | `Component`       |
+| Name      | `example-website` |
+| Namespace | `default`         |
+| Owner     | `guests`          |
+| Lifecycle | `experimental`    |
 
 ## Source Layout
 

@@ -16,7 +16,9 @@ export default createBackendPlugin({
         rootConfig: coreServices.rootConfig,
       },
       async init({ httpRouter, logger, rootConfig }) {
-        const configuredDataDir = rootConfig.getOptionalString('aiBackstage.dataDir');
+        const configuredDataDir = rootConfig.getOptionalString(
+          'aiBackstage.dataDir',
+        );
         const defaultDataDir = resolvePackagePath(
           '@internal/plugin-ai-backstage-backend',
           '../../../data',
@@ -33,7 +35,9 @@ export default createBackendPlugin({
             const snapshot = await loadAiBackstageSnapshot(dataDir);
             response.json(snapshot);
           } catch (error) {
-            logger.error(`Failed to load AI Backstage snapshot from ${dataDir}`);
+            logger.error(
+              `Failed to load AI Backstage snapshot from ${dataDir}`,
+            );
             next(error);
           }
         });

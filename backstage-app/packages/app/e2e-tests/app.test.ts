@@ -16,7 +16,81 @@
 
 import { test, expect } from '@playwright/test';
 
-test('App should render the welcome page', async ({ page }) => {
+const aiRoutes = [
+  {
+    path: '/',
+    navName: 'AI Backstage',
+    expectedText:
+      'One place to navigate models, communities, skills, repositories, and AI agents.',
+  },
+  {
+    path: '/models',
+    navName: 'AI Models',
+    expectedText: 'Operational model matrix',
+  },
+  {
+    path: '/skills',
+    navName: 'AI Skills',
+    expectedText: 'Internal skills',
+  },
+  {
+    path: '/communities',
+    navName: 'AI Communities',
+    expectedText: 'AI communities and loops',
+  },
+  {
+    path: '/agents',
+    navName: 'AI Agents',
+    expectedText: 'Managed agent assets',
+  },
+  {
+    path: '/foundations',
+    navName: 'AI Foundations',
+    expectedText: 'Diagram support remains first-class',
+  },
+  {
+    path: '/docs',
+    navName: 'AI Docs',
+    expectedText: 'Documentation sources',
+  },
+  {
+    path: '/platform',
+    navName: 'Backstage Platform',
+    expectedText: 'What teams can do in this platform',
+  },
+  {
+    path: '/showcase',
+    navName: 'AI Showcase',
+    expectedText: 'Design token map',
+  },
+] as const;
+
+const assertNoVisibleErrors = async (page: import('@playwright/test').Page) => {
+  const visibleErrorText = [
+    'No data available',
+    'AI Backstage data request failed',
+    'PlantUML could not be rendered',
+    'The diagram could not be rendered',
+    'Page not found',
+    'Unhandled Runtime Error',
+  ];
+
+  for (const text of visibleErrorText) {
+    await expect(
+      page.getByText(text, { exact: false }).first(),
+    ).not.toBeVisible();
+  }
+
+  await expect(
+    page
+      .locator('[role="alert"], [class*="Error"], .MuiAlert-standardError')
+      .filter({ hasText: /error|failed|could not/i }),
+  ).toHaveCount(0);
+};
+
+test('Backstage shell renders the AI Backstage home route', async ({
+  page,
+}) => {
   await page.goto('/');
   await page.waitForLoadState('networkidle');
 
@@ -24,18 +98,39 @@ test('App should render the welcome page', async ({ page }) => {
   await expect(nav.getByRole('link', { name: 'Catalog' })).toBeVisible({
     timeout: 15000,
   });
-  await expect(page.getByRole('link', { name: 'APIs' })).toBeVisible();
-});
-
-test('Docs route should render the curated AI docs hub', async ({ page }) => {
-  await page.goto('/docs');
-  await page.waitForLoadState('networkidle');
-
   await expect(
     page.getByText(
-      'Keep repository knowledge curated now, while preparing for TechDocs later.',
+      'One place to navigate models, communities, skills, repositories, and AI agents.',
     ),
   ).toBeVisible();
-  await expect(page.getByText('Route model')).toBeVisible();
-  await expect(page.getByText('/techdocs')).toBeVisible();
+  await assertNoVisibleErrors(page);
+});
+
+test('AI Backstage sidebar navigates every product page without visible errors', async ({
+  page,
+}) => {
+  const clientErrors: string[] = [];
+  page.on('pageerror', error => clientErrors.push(error.message));
+
+  await page.goto('/');
+  await page.waitForLoadState('networkidle');
+
+  for (const route of aiRoutes) {
+    const link = page.getByRole('link', {
+      name: route.navName,
+      exact: true,
+    });
+    await expect(link).toBeVisible({ timeout: 15000 });
+    await link.click();
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(
+      new RegExp(`${route.path === '/' ? '/$' : `${route.path}$`}`),
+    );
+    await expect(
+      page.getByText(route.expectedText, { exact: true }),
+    ).toBeVisible({ timeout: 15000 });
+    await assertNoVisibleErrors(page);
+  }
+
+  expect(clientErrors).toEqual([]);
 });

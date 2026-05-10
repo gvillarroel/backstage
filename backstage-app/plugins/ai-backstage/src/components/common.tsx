@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Content,
   Link,
@@ -20,6 +20,7 @@ import Typography from '@material-ui/core/Typography';
 import { FdxThemeProvider, fdxDesignTokens } from './theme';
 import { useAiBackstageStyles } from './styles';
 import type { AiBackstageSnapshot } from '../types';
+import type { ElementType, ReactNode } from 'react';
 
 const toneStyles = {
   approved: {
@@ -66,10 +67,10 @@ export const AiPage = ({
 }: {
   eyebrow: string;
   title: string;
-  description: React.ReactNode;
+  description: ReactNode;
   metrics?: Array<{ label: string; value: string; helper: string }>;
-  aside?: React.ReactNode;
-  children: React.ReactNode;
+  aside?: ReactNode;
+  children: ReactNode;
 }) => {
   const classes = useAiBackstageStyles();
 
@@ -123,8 +124,8 @@ export const SectionBlock = ({
 }: {
   eyebrow: string;
   title: string;
-  description?: React.ReactNode;
-  children: React.ReactNode;
+  description?: ReactNode;
+  children: ReactNode;
 }) => {
   const classes = useAiBackstageStyles();
 
@@ -180,7 +181,7 @@ export const SimpleTable = ({
   rows,
 }: {
   columns: string[];
-  rows: React.ReactNode[][];
+  rows: ReactNode[][];
 }) => {
   const classes = useAiBackstageStyles();
 
@@ -219,8 +220,8 @@ export const DomainCardGrid = ({
     key: string;
     title: string;
     eyebrow?: string;
-    description: React.ReactNode;
-    footer?: React.ReactNode;
+    description: ReactNode;
+    footer?: ReactNode;
   }>;
 }) => {
   const classes = useAiBackstageStyles();
@@ -245,7 +246,7 @@ export const DomainCardGrid = ({
   );
 };
 
-export const MetadataRow = ({ children }: { children: React.ReactNode }) => {
+export const MetadataRow = ({ children }: { children: ReactNode }) => {
   const classes = useAiBackstageStyles();
   return <div className={classes.repoMeta}>{children}</div>;
 };
@@ -268,7 +269,7 @@ export const RepoLink = ({
   children,
 }: {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) => <Link to={href}>{children}</Link>;
 
 export const DiagramCard = ({
@@ -348,24 +349,25 @@ export const DiagramCard = ({
     };
   }, [id, kind, source]);
 
+  let diagramContent: ReactNode = <Progress />;
+  if (svg) {
+    diagramContent = <div dangerouslySetInnerHTML={{ __html: svg }} />;
+  } else if (error) {
+    diagramContent = (
+      <Typography className={classes.cardBodyText}>
+        {kind === 'plantuml'
+          ? 'PlantUML could not be rendered from the remote service.'
+          : 'The diagram could not be rendered.'}{' '}
+        {error}
+      </Typography>
+    );
+  }
+
   return (
     <Paper className={classes.card}>
       <Typography className={classes.eyebrow}>{kind}</Typography>
       <Typography variant="h6">{title}</Typography>
-      <div className={classes.diagramSurface}>
-        {svg ? (
-          <div dangerouslySetInnerHTML={{ __html: svg }} />
-        ) : error ? (
-          <Typography className={classes.cardBodyText}>
-            {kind === 'plantuml'
-              ? 'PlantUML could not be rendered from the remote service.'
-              : 'The diagram could not be rendered.'}{' '}
-            {error}
-          </Typography>
-        ) : (
-          <Progress />
-        )}
-      </div>
+      <div className={classes.diagramSurface}>{diagramContent}</div>
       <pre className={classes.codeBlock}>{source}</pre>
     </Paper>
   );
@@ -489,7 +491,7 @@ export const IconHeadline = ({
   title,
   description,
 }: {
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
   description: string;
 }) => {

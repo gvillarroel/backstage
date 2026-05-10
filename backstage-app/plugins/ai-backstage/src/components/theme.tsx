@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   createMuiTheme,
   makeStyles,
@@ -6,6 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import type { Theme } from '@material-ui/core/styles';
+import type { ReactNode } from 'react';
 
 export const fdxDesignTokens = {
   fontFamily: '"Open Sans", Arial, sans-serif',
@@ -165,11 +165,7 @@ const useThemeBridgeStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const FdxThemeProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const FdxThemeProvider = ({ children }: { children: ReactNode }) => {
   const classes = useThemeBridgeStyles();
 
   return (

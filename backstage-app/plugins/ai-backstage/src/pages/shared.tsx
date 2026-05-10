@@ -1,4 +1,3 @@
-import React from 'react';
 import StorageIcon from '@material-ui/icons/Storage';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
@@ -41,6 +40,7 @@ import {
   titleFromSlug,
 } from '../utils/format';
 import { fdxDesignTokens } from '../components/theme';
+import type { ReactElement } from 'react';
 
 export const SnapshotBoundary = ({
   loading,
@@ -51,7 +51,7 @@ export const SnapshotBoundary = ({
   loading: boolean;
   error?: Error;
   snapshot?: AiBackstageSnapshot;
-  children: (snapshot: AiBackstageSnapshot) => React.ReactElement;
+  children: (snapshot: AiBackstageSnapshot) => ReactElement;
 }) => {
   if (loading) {
     return <LoadingState />;
@@ -403,7 +403,17 @@ export const renderCommunitiesPage = (snapshot: AiBackstageSnapshot) => (
   </AiPage>
 );
 
-export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
+const agentStatusLabel = (index: number) => {
+  if (index === 0) {
+    return 'Primary posture';
+  }
+  if (index === 1) {
+    return 'Secondary posture';
+  }
+  return 'Emerging posture';
+};
+
+const AgentsPageContent = ({ snapshot }: { snapshot: AiBackstageSnapshot }) => {
   const classes = useAiBackstageStyles();
   const statusCounts = snapshot.agents.reduce<Record<string, number>>(
     (acc, agent) => {
@@ -501,11 +511,7 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               }}
             >
               <Typography className={classes.eyebrow}>
-                {index === 0
-                  ? 'Primary posture'
-                  : index === 1
-                  ? 'Secondary posture'
-                  : 'Emerging posture'}
+                {agentStatusLabel(index)}
               </Typography>
               <Typography className={classes.statusOverviewValue}>
                 {count}
@@ -533,7 +539,9 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
               className={classes.agentCard}
               style={{
                 background: fdxDesignTokens.neutralSurface,
-                boxShadow: `${fdxDesignTokens.shadowCardStrong}, inset 3px 0 0 ${
+                boxShadow: `${
+                  fdxDesignTokens.shadowCardStrong
+                }, inset 3px 0 0 ${
                   accentByTone[agent.uiStatus] ?? accentByTone.preview
                 }`,
               }}
@@ -577,6 +585,10 @@ export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => {
     </AiPage>
   );
 };
+
+export const renderAgentsPage = (snapshot: AiBackstageSnapshot) => (
+  <AgentsPageContent snapshot={snapshot} />
+);
 
 export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
   const repos = snapshot.repositories.filter(repository =>
@@ -669,7 +681,7 @@ export const renderFoundationsPage = (snapshot: AiBackstageSnapshot) => {
   data[CSV bridge data] --> backend[Backstage backend plugin]
   backend --> frontend[AI Backstage frontend plugin]
   frontend --> shell[Backstage shell]
-  shell --> users[f(dx) teams]`}
+  shell --> users["f(dx) teams"]`}
                 />
               ),
             },
@@ -723,7 +735,8 @@ export const renderDocsPage = (snapshot: AiBackstageSnapshot) => (
         </Typography>
         <Typography variant="body2">
           <strong>/docs</strong> now serves the curated AI Backstage docs hub.
-          Native TechDocs is still available separately at <strong>/techdocs</strong>.
+          Native TechDocs is still available separately at{' '}
+          <strong>/techdocs</strong>.
         </Typography>
       </Paper>
       <SimpleTable
@@ -1044,7 +1057,11 @@ User --> "Backstage Frontend"
   </AiPage>
 );
 
-export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => {
+const ShowcasePageContent = ({
+  snapshot,
+}: {
+  snapshot: AiBackstageSnapshot;
+}) => {
   const classes = useAiBackstageStyles();
 
   return (
@@ -1130,3 +1147,7 @@ export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => {
     </AiPage>
   );
 };
+
+export const renderShowcasePage = (snapshot: AiBackstageSnapshot) => (
+  <ShowcasePageContent snapshot={snapshot} />
+);

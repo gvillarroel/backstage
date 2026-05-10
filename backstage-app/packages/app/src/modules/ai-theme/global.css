@@ -115,11 +115,14 @@ body {
 [class*='BackstageSidebarItem-root'].active,
 [class*='BackstageSidebarItem-root'][aria-current='page'],
 [class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-label'],
-[class*='BackstageSidebarItem-root'].active [class*='BackstageSidebarItem-label'],
+[class*='BackstageSidebarItem-root'].active
+  [class*='BackstageSidebarItem-label'],
 [class*='BackstageSidebarItem-root'][aria-current='page']
   [class*='BackstageSidebarItem-label'],
-[class*='BackstageSidebarItem-selected'] [class*='BackstageSidebarItem-itemIcon'],
-[class*='BackstageSidebarItem-root'].active [class*='BackstageSidebarItem-itemIcon'],
+[class*='BackstageSidebarItem-selected']
+  [class*='BackstageSidebarItem-itemIcon'],
+[class*='BackstageSidebarItem-root'].active
+  [class*='BackstageSidebarItem-itemIcon'],
 [class*='BackstageSidebarItem-root'][aria-current='page']
   [class*='BackstageSidebarItem-itemIcon'],
 [class*='BackstageSidebarItem-selected']
@@ -181,7 +184,11 @@ a.MuiTypography-colorPrimary,
 
 .MuiButton-outlinedPrimary {
   color: var(--fdx-brand-red) !important;
-  border-color: color-mix(in srgb, var(--fdx-brand-red) 50%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--fdx-brand-red) 50%,
+    transparent
+  ) !important;
 }
 
 .MuiButton-outlinedPrimary:hover {

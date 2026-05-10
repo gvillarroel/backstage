@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { SignInPage } from '@backstage/core-components';
 import { createFrontendModule } from '@backstage/frontend-plugin-api';
-import { SignInPageBlueprint, type SignInPageProps } from '@backstage/plugin-app-react';
+import {
+  SignInPageBlueprint,
+  type SignInPageProps,
+} from '@backstage/plugin-app-react';
 
 function isPublicAppMode() {
   return (

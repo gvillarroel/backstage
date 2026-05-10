@@ -36,8 +36,12 @@ corepack yarn start
 ```bash
 cd backstage-app
 corepack yarn tsc --pretty false
+corepack yarn test --watch=false
 corepack yarn build:all
+corepack yarn test:e2e
 ```
+
+See [HOW-TO.md](HOW-TO.md) for the complete replication and validation procedure.
 
 ## GitHub Pages
 
